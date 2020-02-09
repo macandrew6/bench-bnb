@@ -49,7 +49,7 @@ group :development do
 
   gem 'pry-rails'
   gem 'better_errors'
-  gem 'bind_by_caller'
+  gem 'binding_of_caller'
 end
 
 group :test do
