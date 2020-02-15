@@ -9,6 +9,14 @@ export const receiveCurrentUser = currentUser  => ({
   currentUser
 });
 
+export const logoutCurrentUser = () => ({
+  type: LOGOUT_CURRENT_USER,
+});
+
+export const receiveErrors = errors => ({
+  type: RECEIVE_SESSION_ERRORS,
+  errors
+});
 
 // export const login = user => dispatch => (
 //   APIUtil.login(user).then(user => (
