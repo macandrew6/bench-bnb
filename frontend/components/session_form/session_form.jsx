@@ -7,6 +7,8 @@ class SessionForm extends Component {
       username: "",
       password: ""
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -36,7 +38,7 @@ class SessionForm extends Component {
   render() {
     return (
       <div>
-        <form >
+        <form onSubmit={this.handleSubmit}>
           Welcome to BenchBnB!
           <br/>
           Please {this.props.formType} or {this.props.navLink}
