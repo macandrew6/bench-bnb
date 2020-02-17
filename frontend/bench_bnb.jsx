@@ -4,9 +4,24 @@ import configureStore from './store/store';
 import Root from './components/Root';
 import { login, logout, signup } from './actions/session_actions';
 
+
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  let store;
   
+  if (window.currentUser) {
+    const preloadedState = {
+      entities: {
+        users: {
+          [window.currentUser.id]: window.currentUser
+        }
+      },
+      session: { id: window.currentUser.id }
+    };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
   //testing start
   window.login = login;
   window.logout = logout;
