@@ -21,6 +21,11 @@ class SessionForm extends Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+    // clears the form after login in or signup
+    this.setState({
+      username: '',
+      password: ''
+    });
   }
 
   renderErrors() {
