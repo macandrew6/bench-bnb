@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import MarkerManager from '../../util/marker_manager';
+
 export default class BenchMap extends Component {
   componentDidMount() {
     // set the map to show SF
@@ -10,6 +12,7 @@ export default class BenchMap extends Component {
 
     // wrap this.mapNode in a Google Map
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map);
   }
 
   render() {
