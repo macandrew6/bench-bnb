@@ -15,6 +15,12 @@ export default class BenchMap extends Component {
     this.MarkerManager = new MarkerManager(this.map);
   }
 
+  componentDidUpdate(prevProps) {
+    if(prevProps.benches !== this.props.benches) {
+      this.MarkerManager.updateMarkers();
+    }
+  }
+
   render() {
     return (
       <div id="map-container" ref={ map => this.mapNode = map }>
