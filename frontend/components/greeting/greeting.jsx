@@ -16,7 +16,6 @@ const Greeting = ({currentUser, logout}) => {
       <button onClick={logout}>Log Out</button>
     </div>
   );
-  console.log(currentUser);
   return currentUser ? personalGreeting() : sessionLinks();
 };
 

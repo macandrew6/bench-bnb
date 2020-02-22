@@ -17,7 +17,7 @@ export default class BenchMap extends Component {
 
   componentDidUpdate(prevProps) {
     if(prevProps.benches !== this.props.benches) {
-      this.MarkerManager.updateMarkers();
+      this.MarkerManager.updateMarkers(this.props.benches);
     }
   }
 
