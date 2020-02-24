@@ -8,6 +8,7 @@ export default class MarkerManager {
     let benchesObj = {};
     benches.forEach(bench => benchesObj[bench.id] = bench);
 
+    console.log(benches);
     benches
       .filter(bench => !this.markers[bench.id])
       .forEach(newBench => this.createMarkerFromBench(newBench));
