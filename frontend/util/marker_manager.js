@@ -5,6 +5,26 @@ export default class MarkerManager {
   }
 
   updateMarkers(benches) {
-    console.log('updating these ', benches);
+    let benchesObj = {};
+    benches.forEach(bench => benchesObj[bench.id] = bench);
+
+    benches
+      .filter(bench => !this.markers[bench.id])
+      .forEach(newBench => this.createMarkerFromBench(newBench));
+
+    console.log(this.markers);
+  }
+
+  createMarkerFromBench(bench) {
+    const position = new google.maps.LatLng(bench.lat, bench.lng);
+    const marker = new google.maps.Marker({
+      position,
+      map: this.map,
+      benchId: bench.id
+    });
+
+    console.log(marker);
+
+    this.markers[marker.benchId] = marker;
   }
 }
