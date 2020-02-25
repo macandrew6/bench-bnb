@@ -24,7 +24,7 @@ class Api::BenchesController < ApplicationController
       :description
     )
   end
-  
+
   def bounds
     params[:bounds]
   end
