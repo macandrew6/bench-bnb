@@ -11,7 +11,6 @@ export default class MarkerManager {
     benches
       .filter(bench => !this.markers[bench.id])
       .forEach(newBench => this.createMarkerFromBench(newBench));
-
   }
 
   createMarkerFromBench(bench) {
