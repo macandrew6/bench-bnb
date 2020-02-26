@@ -24,7 +24,7 @@ export default class BenchMap extends Component {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west }
       };
-      this.props.updateBounds(bounds);
+      this.props.updateFilter('bounds', bounds);
     });
   }
 

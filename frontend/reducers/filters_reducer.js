@@ -4,7 +4,7 @@ const filterReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case UPDATE_FILTER:
-      return Object.assign({}, state, {[action.filters]: action.value});
+      return Object.assign({}, state, {[action.filter]: action.value});
     default:
       return state; 
   }
