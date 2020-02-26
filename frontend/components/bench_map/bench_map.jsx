@@ -13,6 +13,19 @@ export default class BenchMap extends Component {
     // wrap this.mapNode in a Google Map
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
+
+    this.registerListeners();
+  }
+
+  registerListeners() {
+    google.maps.event.addListener(this.map, 'idle', () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west }
+      };
+      this.props.updateBounds(bounds);
+    });
   }
 
   componentDidUpdate(prevProps) {
