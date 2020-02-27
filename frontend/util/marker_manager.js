@@ -20,8 +20,6 @@ export default class MarkerManager {
     Object.keys(this.markers) //review this line of code
       .filter(benchId => !benchesObj[benchId])
       .forEach(benchId => this.removeMarker(this.markers[benchId]));
-
-      console.log(this.markers)
   }
 
   createMarkerFromBench(bench) {

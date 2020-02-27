@@ -1,5 +1,4 @@
 export const fetchBenches = data => {
-  console.log(data);
   return (
     $.ajax({
       method: 'GET',
