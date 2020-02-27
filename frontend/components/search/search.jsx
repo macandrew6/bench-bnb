@@ -4,7 +4,7 @@ import BenchIndex from './bench_index';
 
 const Search = ({ benches, fetchBenches, updateFilter }) => {
   return (
-    <div>
+    <div className="search-page-container">
       <BenchMap 
         benches={benches}
         updateFilter={updateFilter}

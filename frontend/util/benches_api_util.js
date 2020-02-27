@@ -8,3 +8,13 @@ export const fetchBenches = data => {
     })
   );
 };
+
+export const createBench = bench => {
+  return (
+    $.ajax({
+      method: 'POST',
+      url: '/api/benches',
+      data: bench
+    })
+  );
+};

@@ -14,7 +14,12 @@
  *= require_self
  */
 
- #map {
-   width: 500px;
-   height: 500px;
- }
+.search-page-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#map {
+  width: 500px;
+  height: 500px;
+}
