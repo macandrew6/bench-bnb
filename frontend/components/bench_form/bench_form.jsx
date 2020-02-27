@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class BenchForm extends Component {
   constructor(props) {
@@ -22,7 +23,13 @@ class BenchForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    console.log(formData);
+    formData.append('bench[description]', this.state.description);
+    formData.append('bench[seating]', this.state.seating);
+    formData.append('bench[lat]', this.props.lat);
+    formData.append('bench[lng]', this.props.lng);
+
+    this.props.createBench(formData);
+    this.props.history.push('/');
   }
   
   render() {
@@ -68,4 +75,4 @@ class BenchForm extends Component {
   }
 }
 
-export default BenchForm;
+export default withRouter(BenchForm);

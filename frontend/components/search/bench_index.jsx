@@ -10,7 +10,7 @@ export default class BenchIndex extends Component {
     return (
       <div>
         {this.props.benches.map(bench => (
-          <BenchIndexItem key={performance.now()} bench={bench} />
+          <BenchIndexItem key={bench.id} bench={bench} />
         ))}
       </div>
     );
