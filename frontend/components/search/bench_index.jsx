@@ -6,10 +6,6 @@ export default class BenchIndex extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchBenches();
-  }
-  
   render() {
     return (
       <div>

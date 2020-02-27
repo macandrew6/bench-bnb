@@ -7,19 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Bench.create!({
-  lat: -122.432813, 
-  lng: 37.795741, 
+  lng: -122.432813, 
+  lat: 37.795741, 
   description: 'random beige house brown trim'
 })
 
 Bench.create!({
-  lat: -122.437784, 
-  lng: 37.790182, 
+  lng: -122.437784, 
+  lat: 37.790182, 
   description: 'clay st house next to park'
 })
 
 Bench.create!({
-  lat: -122.451116, 
-  lng: 37.763076, 
+  lng: -122.451116, 
+  lat: 37.763076, 
   description: 'house next to a school'
 })
