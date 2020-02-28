@@ -1,6 +1,12 @@
 import { UPDATE_FILTER } from "../actions/filter_actions";
 
-const filterReducer = (state = {}, action) => {
+const defaultFilters = Object.freeze({
+  bounds: {},
+  minSeating: 1,
+  maxSeating: 10
+});
+
+const filterReducer = (state = defaultFilters, action) => {
   Object.freeze(state);
   switch(action.type) {
     case UPDATE_FILTER:
