@@ -5,8 +5,10 @@ import Search from './search';
 import { fetchBenches } from '../../actions/bench_actions';
 import { updateFilter } from '../../actions/filter_actions';
 
-const mapStateToProps = ({ entities: { benches } }) => ({
-  benches: Object.values(benches)
+const mapStateToProps = ({ entities: { benches }, ui: { filters } }) => ({
+  benches: Object.values(benches),
+  minSeating: filters.minSeating,
+  maxSeating: filters.maxSeating
 });
 
 const mapDispatchToProps = dispatch => ({
