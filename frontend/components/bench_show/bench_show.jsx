@@ -3,7 +3,6 @@ import BenchMap from '../bench_map/bench_map';
 import { Link } from 'react-router-dom';
 
 const BenchShow = ({ bench, fetchBench, benchId }) => {
-  console.log(bench);
   const benches = {
     [bench.id]: bench
   };

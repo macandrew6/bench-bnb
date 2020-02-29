@@ -3,20 +3,25 @@ import * as BenchesAPIUtil from '../util/benches_api_util';
 export const RECEIVE_BENCHES = 'RECEIVE_BENCHES';
 export const RECEIVE_BENCH = 'RECEIVE_BENCH';
 
-export const receiveBenches = benches => ({
-  type: RECEIVE_BENCHES,
-  benches
-});
+export const receiveBenches = benches => {
+  return ({
+    type: RECEIVE_BENCHES,
+    benches
+  });
+};
 
-export const receiveBench = bench => ({
-  type: RECEIVE_BENCH,
-  bench
-});
+export const receiveBench = (payload) => {
+  return ({ // this was placed in a payload.. why did i come in this format?
+    type: RECEIVE_BENCH,
+    bench: payload.bench
+  });
+};
 
 export const fetchBench = id => dispatch => {
+  console.log('im here baby');
   return (
     BenchesAPIUtil.fetchBench(id)
-      .then((bench) => dispatch(receiveBench(bench)))
+      .then((payload) => dispatch(receiveBench(payload))) // payload??
   );
 };
 
