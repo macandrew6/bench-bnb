@@ -13,8 +13,16 @@ class BenchMap extends Component {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
+    
+    if (this.props.singleBench) {
+      this.props.fetchBench(this.props.benchId);
+    } else {
+      this.registerListeners();
+      this.MarkerManager.updateMarkers(this.props.benches);
+    }
+  }
 
-    this.registerListeners();
+  componentDidUpdate(prevProps) {
     this.MarkerManager.updateMarkers(this.props.benches);
   }
 
@@ -35,10 +43,6 @@ class BenchMap extends Component {
       };
       this.handleClick(coords);
     });
-  }
-
-  componentDidUpdate(prevProps) {
-    this.MarkerManager.updateMarkers(this.props.benches);
   }
 
   handleClick(coords) {

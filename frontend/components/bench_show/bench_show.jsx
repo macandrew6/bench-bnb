@@ -1,16 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BenchMap from '../bench_map/bench_map';
 import { Link } from 'react-router-dom';
 
-export default class BenchShow extends Component {
+const BenchShow = ({ bench, fetchBench, benchId }) => {
+  console.log(bench);
+  const benches = {
+    [bench.id]: bench
+  };
+  return (
+    <div>
+      <Link to='/'>Back to Benches</Link>
+      <BenchMap 
+        benches={benches}
+        singleBench={true}
+        benchId={benchId}
+        fetchBench={fetchBench}
+      />
+    </div>
+  );
+};
 
-  
-  render() {
-    return (
-      <div>
-        <Link to='/'>Back to Benches</Link>
-        
-      </div>
-    );
-  }
-}
+export default BenchShow;
