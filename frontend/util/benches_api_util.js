@@ -9,6 +9,15 @@ export const fetchBenches = data => {
   );
 };
 
+export const fetchBench = id => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: `/api/benches/${id}`
+    })
+  );
+};
+
 export const createBench = bench => {
   console.log(bench);
   return (
