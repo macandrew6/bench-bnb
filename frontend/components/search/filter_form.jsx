@@ -8,6 +8,8 @@ const FilterForm = ({ updateFilter, minSeating, maxSeating }) => {
 
   return (
     <div>
+      Number of Seats:
+      <br/>
       <input 
         type="number" 
         placeholder="min-seating" 
