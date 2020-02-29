@@ -2,6 +2,8 @@ import React from 'react';
 import BenchMap from '../bench_map/bench_map';
 import { Link } from 'react-router-dom';
 
+// why when i refresh this page do i lose connection with the store
+
 const BenchShow = ({ bench, fetchBench, benchId }) => {
   const benches = {
     [bench.id]: bench
