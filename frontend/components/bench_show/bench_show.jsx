@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 // still not sure why this happens
 
 const BenchShow = ({ bench, fetchBench, benchId }) => {
+  console.log(bench);
   const benches = {
-    [bench.id]: bench
+    [benchId]: bench
   };
   return (
     <div>
