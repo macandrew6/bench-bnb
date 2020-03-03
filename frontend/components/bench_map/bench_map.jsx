@@ -9,13 +9,19 @@ const mapOptions = {
 };
 
 class BenchMap extends Component {
+  constructor() {
+    super();
+  }
+  
   componentDidMount() {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-    console.log(this.props);
     if (this.props.singleBench) {
-      this.props.fetchBench(this.props.benchId);
+      this.props.fetchBench(this.props.benchId).then(res => {
+        console.log(res.bench.lat);
+        console.log(res.bench.lng);
+      });
     } else {
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.benches);

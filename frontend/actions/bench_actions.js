@@ -18,7 +18,6 @@ export const receiveBench = (payload) => {
 };
 
 export const fetchBench = id => dispatch => {
-  console.log('im here baby');
   return (
     BenchesAPIUtil.fetchBench(id)
       .then((payload) => dispatch(receiveBench(payload))) // payload??

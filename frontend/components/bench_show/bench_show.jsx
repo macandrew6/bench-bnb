@@ -8,7 +8,6 @@ const BenchShow = ({ bench, fetchBench, benchId }) => {
   const benches = {
     [benchId]: bench
   };
-  console.log(bench);
   return (
     <div className="bench-show-container">
       <div className="lefthalf-bench-show">
