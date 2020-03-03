@@ -12,7 +12,7 @@ class BenchMap extends Component {
   componentDidMount() {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     console.log(this.props);
     if (this.props.singleBench) {
       this.props.fetchBench(this.props.benchId);
@@ -48,6 +48,10 @@ class BenchMap extends Component {
       };
       this.handleClick(coords);
     });
+  }
+
+  handleMarkerClick(bench) {
+    this.props.history.push(`benches/${bench.id}`);
   }
 
   handleClick(coords) {

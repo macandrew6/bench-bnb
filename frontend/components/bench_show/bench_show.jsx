@@ -1,24 +1,30 @@
 import React from 'react';
 import BenchMap from '../bench_map/bench_map';
+import BenchDetail from './bench_detail';
 import { Link } from 'react-router-dom';
 
-// why when i refresh this page do i lose connection with the store
-// still not sure why this happens
-
 const BenchShow = ({ bench, fetchBench, benchId }) => {
-  console.log(bench);
+  // work on centering the page on the location passed in on the map
   const benches = {
     [benchId]: bench
   };
+  console.log(bench);
   return (
-    <div>
-      <Link to='/'>Back to Benches</Link>
-      <BenchMap 
-        benches={benches}
-        singleBench={true}
-        benchId={benchId}
-        fetchBench={fetchBench}
-      />
+    <div className="bench-show-container">
+      <div className="lefthalf-bench-show">
+        <Link to='/'>Back to Benches</Link>
+        <BenchMap 
+          benches={benches}
+          singleBench={true}
+          benchId={benchId}
+          fetchBench={fetchBench}
+        />
+      </div>
+      <div className="righthalf-bench-show">
+        <BenchDetail 
+          bench={bench}
+        />
+      </div>
     </div>
   );
 };
