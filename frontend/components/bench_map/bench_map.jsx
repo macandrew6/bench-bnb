@@ -3,11 +3,6 @@ import { withRouter } from 'react-router-dom';
 
 import MarkerManager from '../../util/marker_manager';
 
-const mapOptions = {
-  center: { lat: 37.7758, lng: -122.435 }, // this is SF
-  zoom: 13
-};
-
 class BenchMap extends Component {
   constructor() {
     super();
@@ -42,6 +37,7 @@ class BenchMap extends Component {
       this.mapOptions.center.lng = benches[benchId].lng; //centers the marker
       this.mapOptions.gestureHandling = 'none'; //disables dragging
 
+      // this.map.setCenter({ lat: benches[benchId].lat, lng: benches[benchId].lng }); //also works but can't set mapOptions
       this.map = new google.maps.Map(this.refs.map, this.mapOptions); //reassigns the map
       this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this)); //reassigns the markersManager
 
