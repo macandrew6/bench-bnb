@@ -23,12 +23,12 @@ class BenchMap extends Component {
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
     if (this.props.singleBench) {
-      this.props.fetchBench(this.props.benchId).then(res => {
-        const singleBenchMap = document.getElementById('map');
-        this.mapOptions.center.lat = res.bench.lat;
-        this.mapOptions.center.lng = res.bench.lng;
-        this.map = new google.maps.Map(singleBenchMap, this.mapOptions);
-      });
+      this.props.fetchBench(this.props.benchId);
+        // .then(res => {
+        // this.mapOptions.center.lat = res.bench.lat;
+        // this.mapOptions.center.lng = res.bench.lng;
+        // this.map = new google.maps.Map(map, this.mapOptions);
+      // });
     } else {
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.benches);
@@ -37,10 +37,14 @@ class BenchMap extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.singleBench) {
-      // const { benches, benchId } = this.props;
-      // console.log(this.props);
-      // this.mapOptions.center.lat = res.bench.lat;
-      // this.mapOptions.center.lng = res.bench.lng;
+      const { benches, benchId } = this.props;
+      this.mapOptions.center.lat = benches[benchId].lat;
+      this.mapOptions.center.lng = benches[benchId].lng; //centers the marker
+      this.mapOptions.gestureHandling = 'none'; //disables dragging
+
+      this.map = new google.maps.Map(this.refs.map, this.mapOptions); //reassigns the map
+      this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this)); //reassigns the markersManager
+
       const targetBench = Object.values(this.props.benches);
       this.MarkerManager.updateMarkers(targetBench);
     } else {
