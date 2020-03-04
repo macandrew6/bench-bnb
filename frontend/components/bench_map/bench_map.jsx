@@ -18,14 +18,16 @@ class BenchMap extends Component {
   }
   
   componentDidMount() {
-    const map = this.refs.map;
+    const map = document.getElementById('map');
     this.map = new google.maps.Map(map, this.mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
     if (this.props.singleBench) {
       this.props.fetchBench(this.props.benchId).then(res => {
+        const singleBenchMap = document.getElementById('map');
         this.mapOptions.center.lat = res.bench.lat;
         this.mapOptions.center.lng = res.bench.lng;
+        this.map = new google.maps.Map(singleBenchMap, this.mapOptions);
       });
     } else {
       this.registerListeners();
@@ -35,6 +37,10 @@ class BenchMap extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.singleBench) {
+      // const { benches, benchId } = this.props;
+      // console.log(this.props);
+      // this.mapOptions.center.lat = res.bench.lat;
+      // this.mapOptions.center.lng = res.bench.lng;
       const targetBench = Object.values(this.props.benches);
       this.MarkerManager.updateMarkers(targetBench);
     } else {
