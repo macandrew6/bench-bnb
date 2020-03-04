@@ -21,11 +21,11 @@ class BenchMap extends Component {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, this.mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+
     if (this.props.singleBench) {
       this.props.fetchBench(this.props.benchId).then(res => {
         this.mapOptions.center.lat = res.bench.lat;
         this.mapOptions.center.lng = res.bench.lng;
-        this.map = new google.maps.Map(map, this.mapOptions);
       });
     } else {
       this.registerListeners();
@@ -36,7 +36,6 @@ class BenchMap extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.singleBench) {
       const targetBench = Object.values(this.props.benches);
-      console.log(targetBench);
       this.MarkerManager.updateMarkers(targetBench);
     } else {
       this.MarkerManager.updateMarkers(this.props.benches);
