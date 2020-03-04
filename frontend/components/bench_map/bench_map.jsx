@@ -11,18 +11,21 @@ const mapOptions = {
 class BenchMap extends Component {
   constructor() {
     super();
+    this.mapOptions = {
+      center: { lat: 37.7758, lng: -122.435 }, // this is SF
+      zoom: 13
+    };
   }
   
   componentDidMount() {
     const map = this.refs.map;
-    this.map = new google.maps.Map(map, mapOptions);
+    this.map = new google.maps.Map(map, this.mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     if (this.props.singleBench) {
       this.props.fetchBench(this.props.benchId).then(res => {
-        mapOptions.center.lat = res.bench.lat;
-        mapOptions.center.lng = res.bench.lng;
-        console.log(res.bench.lat);
-        console.log(res.bench.lng);
+        this.mapOptions.center.lat = res.bench.lat;
+        this.mapOptions.center.lng = res.bench.lng;
+        this.map = new google.maps.Map(map, this.mapOptions);
       });
     } else {
       this.registerListeners();
@@ -33,6 +36,7 @@ class BenchMap extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.singleBench) {
       const targetBench = Object.values(this.props.benches);
+      console.log(targetBench);
       this.MarkerManager.updateMarkers(targetBench);
     } else {
       this.MarkerManager.updateMarkers(this.props.benches);
