@@ -19,6 +19,8 @@ class BenchMap extends Component {
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     if (this.props.singleBench) {
       this.props.fetchBench(this.props.benchId).then(res => {
+        mapOptions.center.lat = res.bench.lat;
+        mapOptions.center.lng = res.bench.lng;
         console.log(res.bench.lat);
         console.log(res.bench.lng);
       });
