@@ -14,6 +14,7 @@ class Api::ReviewsController < ApplicationController
   private
 
   def review_params
+    debugger
     params.require(:reviews).permit(:rating, :body, :bench_id)
   end
 end
