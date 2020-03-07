@@ -2,6 +2,7 @@ import * as BenchesAPIUtil from '../util/benches_api_util';
 
 export const RECEIVE_BENCHES = 'RECEIVE_BENCHES';
 export const RECEIVE_BENCH = 'RECEIVE_BENCH';
+export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 
 export const receiveBenches = benches => {
   return ({
@@ -14,6 +15,14 @@ export const receiveBench = (payload) => {
   return ({ // this was placed in a payload.. why did i come in this format?
     type: RECEIVE_BENCH,
     bench: payload.bench
+  });
+};
+
+export const receiveReview = ({review, author}) => {
+  return ({
+    type: RECEIVE_REVIEW,
+    review,
+    author
   });
 };
 
@@ -35,5 +44,12 @@ export const createBench = bench => dispatch => {
   return (
     BenchesAPIUtil.createBench(bench)
       .then((bench) => dispatch(receiveBench(bench)))
+  );
+};
+
+export const createReview = review => dispatch => {
+  return (
+    BenchesAPIUtil.createReview(review)
+      .then((review) => dispatch(receiveReview(review)))
   );
 };
