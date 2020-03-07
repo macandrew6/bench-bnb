@@ -11,14 +11,15 @@ export const receiveBenches = benches => {
   });
 };
 
-export const receiveBench = (payload) => {
+export const receiveBench = ({ bench, reviews }) => {
   return ({ // this was placed in a payload.. why did i come in this format?
     type: RECEIVE_BENCH,
-    bench: payload.bench
+    bench,
+    reviews
   });
 };
 
-export const receiveReview = ({review, author}) => {
+export const receiveReview = ({ review, author }) => {
   return ({
     type: RECEIVE_REVIEW,
     review,
