@@ -1,6 +1,6 @@
 import { RECEIVE_REVIEW, RECEIVE_BENCH } from '../actions/bench_actions';
 
-const reviewsReducer = (state, action) => {
+const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_BENCH:

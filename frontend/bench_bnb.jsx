@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/Root';
 import { login, logout, signup } from './actions/session_actions';
-import { fetchBenches } from './actions/bench_actions';
+import { fetchBenches, createReview } from './actions/bench_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   //testing start
   window.fetchBenches = fetchBenches;
+  window.createReview = createReview;
   window.login = login;
   window.logout = logout;
   window.signup = signup;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchBenches = fetchBenches;
   //testing end
   
   const root = document.getElementById('root');

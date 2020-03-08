@@ -1,14 +1,17 @@
 import { connect } from 'react-redux';
 import BenchShow from './bench_show';
 import { fetchBench } from '../../actions/bench_actions';
-import { selectSingleBench } from '../../reducers/selectors';
+import { selectSingleBench, selectReviewsForBench } from '../../reducers/selectors';
 
-const mapStateToProps = ({ entities: { benches }}, { match: { params } }) => {
+const mapStateToProps = ({ entities: { benches, reviews }}, { match: { params } }) => {
   const benchId = params.benchId;
   const bench = selectSingleBench(benches, benchId);
+  // const reviewsForBench = selectReviewsForBench(reviews, bench);
+  console.log(selectReviewsForBench(reviews, bench));
   return ({
     benchId,
-    bench
+    bench,
+    // reviews: reviewsForBench
   });
 };
 
