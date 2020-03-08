@@ -4,7 +4,6 @@ import BenchDetail from './bench_detail';
 import { Link } from 'react-router-dom';
 
 const BenchShow = ({ bench, fetchBench, benchId }) => {
-  // work on centering the page on the location passed in on the map
   const benches = {
     [benchId]: bench
   };
