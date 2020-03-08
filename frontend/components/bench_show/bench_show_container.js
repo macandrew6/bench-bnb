@@ -7,7 +7,7 @@ const mapStateToProps = ({ entities: { benches, reviews }}, { match: { params } 
   const benchId = params.benchId;
   const bench = selectSingleBench(benches, benchId);
   // const reviewsForBench = selectReviewsForBench(reviews, bench);
-  console.log(selectReviewsForBench(reviews, bench));
+  // console.log(selectReviewsForBench(reviews, bench));
   return ({
     benchId,
     bench,
