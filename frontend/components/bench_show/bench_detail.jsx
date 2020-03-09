@@ -1,7 +1,6 @@
 import React from 'react';
 
-const BenchDetail = ({ bench }) => {
-  if (!bench) return null;
+const BenchDetail = ({ bench, reviews }) => {
   return (
     <div>
       <ul>
@@ -10,6 +9,8 @@ const BenchDetail = ({ bench }) => {
         <li>Latitude: {bench.lat}</li>
         <li>Longitude: {bench.lng}</li>
       </ul>
+      
+
     </div>
   );
 };

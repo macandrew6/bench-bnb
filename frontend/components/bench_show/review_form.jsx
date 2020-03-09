@@ -13,6 +13,7 @@ class ReviewForm extends Component {
   render() {
     return (
       <div>
+        <input type="text" placeholder="write a review here"/>
         I am review form
       </div>
     );
