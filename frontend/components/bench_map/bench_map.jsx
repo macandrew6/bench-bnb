@@ -27,14 +27,14 @@ class BenchMap extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.singleBench) {
-      const { benches, benchId } = this.props;
-      this.mapOptions.center.lat = benches[benchId].lat;
-      this.mapOptions.center.lng = benches[benchId].lng; //centers the marker
-      this.mapOptions.gestureHandling = 'none'; //disables dragging
+      // const { benches, benchId } = this.props;
+      // this.mapOptions.center.lat = benches[benchId].lat;
+      // this.mapOptions.center.lng = benches[benchId].lng; //centers the marker
+      // this.mapOptions.gestureHandling = 'none'; //disables dragging
 
-      // this.map.setCenter({ lat: benches[benchId].lat, lng: benches[benchId].lng }); //also works but can't set mapOptions
-      this.map = new google.maps.Map(this.refs.map, this.mapOptions); //reassigns the map
-      this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this)); //reassigns the markersManager
+      // // this.map.setCenter({ lat: benches[benchId].lat, lng: benches[benchId].lng }); //also works but can't set mapOptions
+      // this.map = new google.maps.Map(this.refs.map, this.mapOptions); //reassigns the map
+      // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this)); //reassigns the markersManager
 
       const targetBench = Object.values(this.props.benches);
       this.MarkerManager.updateMarkers(targetBench);
