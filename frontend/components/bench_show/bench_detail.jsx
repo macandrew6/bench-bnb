@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewIndex from './review_index';
 
 const BenchDetail = ({ bench, reviews }) => {
   return (
@@ -9,8 +10,8 @@ const BenchDetail = ({ bench, reviews }) => {
         <li>Latitude: {bench.lat}</li>
         <li>Longitude: {bench.lng}</li>
       </ul>
-      
-
+      Reviews:
+      <ReviewIndex reviews={reviews}/>
     </div>
   );
 };

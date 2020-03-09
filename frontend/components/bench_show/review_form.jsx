@@ -28,6 +28,10 @@ class ReviewForm extends Component {
   
   handleSubmitReview(e) {
     e.preventDefault();
+    const benchId = parseInt(this.props.match.params.benchId);
+    const review = Object.assign({}, this.state, {bench_id: benchId});
+    this.props.createReview(review);
+    this.navigateToBenchShow();
   }
   
   render() {
