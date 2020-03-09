@@ -13,12 +13,11 @@ class BenchMap extends Component {
   }
   
   componentDidMount() {
-    const map = document.getElementById('map');
-
     if(this.props.singleBench) {
       this.mapOptions.gestureHandling = 'none';
     } 
 
+    const map = document.getElementById('map');
     this.map = new google.maps.Map(map, this.mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
 
@@ -35,14 +34,6 @@ class BenchMap extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.singleBench) {
-      // const { benches, benchId } = this.props;
-      // this.mapOptions.center.lat = benches[benchId].lat;
-      // this.mapOptions.center.lng = benches[benchId].lng; //centers the marker
-      // this.mapOptions.gestureHandling = 'none'; //disables dragging
-
-      // this.map = new google.maps.Map(this.refs.map, this.mapOptions); //reassigns the map
-      // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this)); //reassigns the markersManager
-
       const targetBench = Object.values(this.props.benches);
       this.MarkerManager.updateMarkers(targetBench);
     } else {

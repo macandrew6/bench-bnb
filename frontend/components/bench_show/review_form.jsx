@@ -4,8 +4,13 @@ import { withRouter } from 'react-router-dom';
 class ReviewForm extends Component {
   constructor() {
     super();
+    this.state = {
+      body: '',
+      rating: 5
+    };
     
     this.navigateToBenchShow = this.navigateToBenchShow.bind(this);
+    this.handleSubmitReview = this.handleSubmitReview.bind(this);
   }
 
   navigateToBenchShow() {
@@ -13,14 +18,41 @@ class ReviewForm extends Component {
     this.props.history.push(url);
   }
   
-  // update
+  update(field) {
+    return e => {
+      this.setState({
+        [field]: e.target.value
+      });
+    };
+  }
   
-  // submitreview
+  handleSubmitReview(e) {
+    e.preventDefault();
+  }
   
   render() {
     return (
       <div>
-        <input type="text" placeholder="write a review here"/>
+        <form onSubmit={this.handleSubmitReview}>
+          Rating:
+          <br/>
+          <input 
+            type="number" 
+            value={this.state.rating}
+            onChange={this.update('rating')}/>
+          <br/>
+          Comment:
+          <br/>
+          <textarea 
+            type="text" 
+            cols="30"
+            rows="10"
+            value={this.state.body}
+            onChange={this.update('body')}
+            placeholder="write a review here"/>
+          <br/>
+          <button type="submit">Submit Review</button>
+        </form>
         <button onClick={this.navigateToBenchShow}>Cancel</button>
       </div>
     );
