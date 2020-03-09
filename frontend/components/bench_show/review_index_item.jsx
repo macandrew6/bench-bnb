@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const ReviewIndexItem = ({ review, author }) => {
   // need to attach the author to each review
@@ -12,4 +13,13 @@ const ReviewIndexItem = ({ review, author }) => {
   );
 };
 
-export default ReviewIndexItem;
+const mapStateToProps = ({ entities: { users } }, { review }) => {
+  return {
+    author: users[review.author_id]
+  };
+};
+
+export default connect(mapStateToProps)(ReviewIndexItem);
+
+
+// export default ReviewIndexItem;
