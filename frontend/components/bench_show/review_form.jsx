@@ -4,6 +4,13 @@ import { withRouter } from 'react-router-dom';
 class ReviewForm extends Component {
   constructor() {
     super();
+    
+    this.navigateToBenchShow = this.navigateToBenchShow.bind(this);
+  }
+
+  navigateToBenchShow() {
+    const url = `/benches/${this.props.match.params.benchId}`;
+    this.props.history.push(url);
   }
   
   // update
@@ -14,7 +21,7 @@ class ReviewForm extends Component {
     return (
       <div>
         <input type="text" placeholder="write a review here"/>
-        I am review form
+        <button onClick={this.navigateToBenchShow}>Cancel</button>
       </div>
     );
   }
