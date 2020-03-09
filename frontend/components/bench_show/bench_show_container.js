@@ -5,11 +5,13 @@ import {
   selectSingleBench, 
   selectReviewsForBench } from '../../reducers/selectors';
 
-const mapStateToProps = (state, { match: { params } }) => {
-  const benchId = parseInt(params.benchId);
-  const bench = selectSingleBench(state.entities.benches, benchId);
-  const reviews = selectReviewsForBench(state.entities.reviews, bench);
-  console.log(reviews);
+const mapStateToProps = (state, { match } ) => {
+  const benchId = parseInt(match.params.benchId);
+  const bench = selectSingleBench(state.entities, benchId);
+  console.log(bench);
+
+  const reviews = selectReviewsForBench(state.entities, bench);
+  // console.log(reviews);
   return ({
     benchId,
     bench,

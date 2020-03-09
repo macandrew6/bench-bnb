@@ -12,6 +12,7 @@ export const receiveBenches = benches => {
 };
 
 export const receiveBench = ({ bench, reviews }) => {
+  console.log(bench, reviews);
   return ({ // this was placed in a payload.. why did i come in this format?
     type: RECEIVE_BENCH,
     bench,

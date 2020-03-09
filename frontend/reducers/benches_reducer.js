@@ -9,9 +9,10 @@ const benchesReducer = (state = {}, action) => {
       const newBench = { [action.bench.id]: action.bench };
       return Object.assign({}, state, newBench);
     case RECEIVE_REVIEW:
-      let { review } = action;
+      const { review } = action;
       const newState = Object.assign({}, state);
       newState[review.bench_id].reviewIds.push(review.id);
+      console.log(newState);
       return newState;
     default:
       return state;

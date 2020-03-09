@@ -31,7 +31,6 @@ export const createReview = review => {
 };
 
 export const createBench = bench => {
-  console.log(bench);
   return (
     $.ajax({
       method: 'POST',

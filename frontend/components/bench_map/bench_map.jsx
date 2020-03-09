@@ -19,11 +19,6 @@ class BenchMap extends Component {
 
     if (this.props.singleBench) {
       this.props.fetchBench(this.props.benchId);
-        // .then(res => {
-        // this.mapOptions.center.lat = res.bench.lat;
-        // this.mapOptions.center.lng = res.bench.lng;
-        // this.map = new google.maps.Map(map, this.mapOptions);
-      // });
     } else {
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.benches);
