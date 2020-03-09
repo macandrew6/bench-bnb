@@ -9,7 +9,6 @@ const mapStateToProps = ({entities: {reviews, benches}}, { match } ) => {
   const benchId = parseInt(match.params.benchId);
   const bench = selectSingleBench(benches, benchId);
   const selectedReviewsForBench = selectReviewsForBench(reviews, bench);
-  // console.log(reviews);
   return ({
     benchId,
     bench,

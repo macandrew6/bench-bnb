@@ -12,7 +12,6 @@ export const receiveBenches = benches => {
 };
 
 export const receiveBench = ({ bench, reviews }) => {
-  console.log(bench, reviews);
   return ({ // this was placed in a payload.. why did i come in this format?
     type: RECEIVE_BENCH,
     bench,
@@ -45,13 +44,13 @@ export const fetchBenches = filters => dispatch => {
 export const createBench = bench => dispatch => {
   return (
     BenchesAPIUtil.createBench(bench)
-      .then((bench) => dispatch(receiveBench(bench)))
+      .then((payload) => dispatch(receiveBench(payload)))
   );
 };
 
 export const createReview = review => dispatch => {
   return (
     BenchesAPIUtil.createReview(review)
-      .then((review) => dispatch(receiveReview(review)))
+      .then((payload) => dispatch(receiveReview(payload)))
   );
 };
