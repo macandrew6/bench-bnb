@@ -11,8 +11,10 @@ export const receiveBenches = benches => {
   });
 };
 
+// was placed in a payload because it was how it was received from the backend 
+// when sending multiple items of data form the backend
 export const receiveBench = ({ bench, reviews, authors }) => {
-  return ({ // this was placed in a payload.. why did i come in this format?
+  return ({ 
     type: RECEIVE_BENCH,
     bench,
     reviews,
@@ -20,18 +22,19 @@ export const receiveBench = ({ bench, reviews, authors }) => {
   });
 };
 
-export const receiveReview = ({ review, author }) => {
+export const receiveReview = ({ review, author, average_rating }) => {
   return ({
     type: RECEIVE_REVIEW,
     review,
-    author
+    author,
+    average_rating
   });
 };
 
 export const fetchBench = id => dispatch => {
   return (
     BenchesAPIUtil.fetchBench(id)
-      .then((payload) => dispatch(receiveBench(payload))) // payload??
+      .then((payload) => dispatch(receiveBench(payload)))
   );
 };
 

@@ -1,6 +1,7 @@
 json.bench do 
   json.partial! 'bench', bench: @bench
   json.reviewIds @bench.reviews.pluck(:id)
+  json.average_rating @bench.average_rating
 end
 
 @bench.reviews.includes(:author).each do |review|
@@ -16,3 +17,4 @@ end
     end
   end
 end
+

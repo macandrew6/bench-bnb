@@ -24,7 +24,7 @@ class BenchMap extends Component {
     if (this.props.singleBench) {
       this.props.fetchBench(this.props.benchId).then(() => {
         const { benches, benchId } = this.props;
-        this.map.setCenter({ lat: benches[benchId].lat, lng: benches[benchId].lng }); //also works but can't set mapOptions
+        this.map.setCenter({ lat: benches[benchId].lat, lng: benches[benchId].lng });
       });
     } else {
       this.registerListeners();

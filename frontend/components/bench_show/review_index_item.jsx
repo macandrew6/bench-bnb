@@ -1,26 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ReviewIndexItem = (props) => {
-  // need to attach the author to each review
-  console.log(props);
+const ReviewIndexItem = ({ review, author }) => {
   return (
     <div>
-      Rating: {props.review.rating}
+      Rating: {review.rating}
       <br/>
-      {props.review.body} - by {props.author.username}
+      {review.body} - by {author.username}
     </div>
   );
 };
 
-const mapStateToProps = ({ entities: { users } }, { review }) => {
-  console.log(users);
-  return {
-    author: users[review.author_id]
-  };
-};
 
-export default connect(mapStateToProps)(ReviewIndexItem);
-
-
-// export default ReviewIndexItem;
+export default ReviewIndexItem;
