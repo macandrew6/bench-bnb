@@ -16,6 +16,7 @@ class Bench < ApplicationRecord
 
   has_many :reviews
 
+  # Active Storage Association
   has_many_attached :photos
 
   def self.in_bounds(bounds)
