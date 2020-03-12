@@ -19,7 +19,6 @@ const Search = ({ benches, minSeating, maxSeating, fetchBenches, updateFilter })
         />
         <BenchIndex 
           benches={benches}
-          fetchBenches={fetchBenches}
         />
       </div>
     </div>

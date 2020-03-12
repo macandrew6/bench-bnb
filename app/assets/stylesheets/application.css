@@ -23,8 +23,22 @@
   width: 500px;
   height: 500px;
 }
-
+/* Bench Show */
 .bench-show-container {
   display: flex;
   justify-content: space-evenly;
+}
+
+/* Search */
+.bench-index-item-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(161, 161, 161, 0.726);
+  margin: 3px;
+  background: linear-gradient(to right, rgb(146, 146, 146), rgb(255, 255, 255) 75%);;
+}
+
+.bench-description {
+  margin-left: 10px;
 }

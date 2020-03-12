@@ -10,32 +10,38 @@ const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
   const benches = {
     [benchId]: bench
   };
+  const mappedPictures = bench.pictures.map((picture, i) => (
+    <img key={i} src={picture} width='200' height='200' alt='loading...'/>
+  ));
 
   return (
-    <div className="bench-show-container">
-      <div className="lefthalf-bench-show">
-        <Link to='/'>Back to Benches</Link>
-        <BenchMap 
-          benches={benches}
-          singleBench={true}
-          benchId={benchId}
-          fetchBench={fetchBench}
-        />
-      </div>
-      <div className="righthalf-bench-show">
-        <BenchDetail 
-          bench={bench}
-          reviews={reviews}
-        />
-        <ReviewLink
-          component={ReviewFormContainer}
-          to={`/benches/${benchId}/review`}
-          label='Leave a Review'
-        />
-        <ProtectedRoute 
-          path='/benches/:benchId/review'
-          component={ReviewFormContainer}
-        />
+    <div>
+      {mappedPictures}
+      <div className="bench-show-container">
+        <div className="lefthalf-bench-show">
+          <Link to='/'>Back to Benches</Link>
+          <BenchMap 
+            benches={benches}
+            singleBench={true}
+            benchId={benchId}
+            fetchBench={fetchBench}
+          />
+        </div>
+        <div className="righthalf-bench-show">
+          <BenchDetail 
+            bench={bench}
+            reviews={reviews}
+          />
+          <ReviewLink
+            component={ReviewFormContainer}
+            to={`/benches/${benchId}/review`}
+            label='Leave a Review'
+          />
+          <ProtectedRoute 
+            path='/benches/:benchId/review'
+            component={ReviewFormContainer}
+          />
+        </div>
       </div>
     </div>
   );
