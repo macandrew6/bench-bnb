@@ -5,21 +5,66 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
-Bench.create!({
+Bench.delete_all
+User.delete_all
+Review.destroy_all
+
+bench1 = Bench.create!({
   lng: -122.432813, 
   lat: 37.795741, 
-  description: 'random beige house brown trim'
+  description: 'pojo\'s house'
 })
 
-Bench.create!({
+bench2 = Bench.create!({
   lng: -122.437784, 
   lat: 37.790182, 
-  description: 'clay st house next to park'
+  description: 'walter whites van'
 })
 
-Bench.create!({
+bench3 = Bench.create!({
   lng: -122.451116, 
   lat: 37.763076, 
-  description: 'house next to a school'
+  description: 'cool bench'
 })
+
+POJO_IMGS = [
+  './app/assets/images/pojo_img1.jpg',
+  './app/assets/images/pojo_img2.jpg',
+  './app/assets/images/pojo_img3.jpg',
+  './app/assets/images/pojo_img4.jpg'
+]
+
+WALTER_IMGS = [
+  './app/assets/images/walter_img1.jpg',
+  './app/assets/images/walter_img2.jpg',
+  './app/assets/images/walter_img3.jpg',
+  './app/assets/images/walter_img4.jpg',
+]
+
+COOL_IMGS = [
+  './app/assets/images/cool1.jpg',
+  './app/assets/images/cool2.jpg',
+  './app/assets/images/cool3.jpg',
+  './app/assets/images/cool4.jpg',
+  './app/assets/images/cool5.jpg',
+  './app/assets/images/cool6.jpg',
+]
+
+def addPictureToBench(bench_data, picture)
+  image = open(picture)
+  bench_data.photos.attach(io: image, filename: "#{bench_data.description.split.join}.png")
+end
+
+POJO_IMGS.each do |img|
+  addPictureToBench(bench1, img)
+end
+
+WALTER_IMGS.each do |img|
+  addPictureToBench(bench2, img)
+end
+
+COOL_IMGS.each do |img|
+  addPictureToBench(bench3, img)
+end

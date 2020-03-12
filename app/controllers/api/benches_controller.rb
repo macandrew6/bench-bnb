@@ -31,7 +31,8 @@ class Api::BenchesController < ApplicationController
       :lat,
       :lng,
       :description,
-      :seating
+      :seating,
+      :photos
     )
   end
 
