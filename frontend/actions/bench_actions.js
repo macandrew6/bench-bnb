@@ -18,7 +18,7 @@ export const receiveBench = ({ bench, reviews, authors }) => {
     type: RECEIVE_BENCH,
     bench,
     reviews,
-    authors
+    authors,
   });
 };
 

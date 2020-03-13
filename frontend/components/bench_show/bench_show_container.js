@@ -7,7 +7,8 @@ import {
 
 const mapStateToProps = ({entities: {reviews, benches}}, { match } ) => {
   const benchId = parseInt(match.params.benchId);
-  const bench = selectSingleBench(benches, benchId);
+  const bench = selectSingleBench(benches, benchId) || 
+    {reviewIds: [], pictures: []};
   const selectedReviewsForBench = selectReviewsForBench(reviews, bench);
   return ({
     benchId,

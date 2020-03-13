@@ -10,17 +10,19 @@ const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
   const benches = {
     [benchId]: bench
   };
-  const mappedPictures = bench.pictures.map((picture, i) => (
-    <img key={i} src={picture} width='200' height='200' alt='loading...'/>
+  let mappedPictures = bench.pictures.map((picture, i) => (
+    <img key={i} src={picture} width='300' height='300' alt='loading...' />
   ));
 
   return (
     <div>
-      {mappedPictures}
+      <Link to='/'>Back to Benches</Link>
+      <div className="picture-carosel">
+        {mappedPictures}
+      </div>
       <div className="bench-show-container">
         <div className="lefthalf-bench-show">
-          <Link to='/'>Back to Benches</Link>
-          <BenchMap 
+          <BenchMap
             benches={benches}
             singleBench={true}
             benchId={benchId}
@@ -28,7 +30,7 @@ const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
           />
         </div>
         <div className="righthalf-bench-show">
-          <BenchDetail 
+          <BenchDetail
             bench={bench}
             reviews={reviews}
           />
@@ -37,7 +39,7 @@ const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
             to={`/benches/${benchId}/review`}
             label='Leave a Review'
           />
-          <ProtectedRoute 
+          <ProtectedRoute
             path='/benches/:benchId/review'
             component={ReviewFormContainer}
           />

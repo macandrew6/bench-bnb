@@ -1,5 +1,5 @@
 export const selectSingleBench = (benches, benchId) => {
-  return benches[benchId] || { reviewIds: [] };
+  return benches[benchId];
 };
 
 export const selectReviewsForBench = (reviews, bench) => {

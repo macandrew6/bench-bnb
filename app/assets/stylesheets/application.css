@@ -13,6 +13,16 @@
  *= require_tree .
  *= require_self
  */
+body {
+  font-family: 'Abel', sans-serif;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(216, 216, 216, 0.863);
+}
 
 .search-page-container {
   display: flex;
@@ -27,6 +37,11 @@
 .bench-show-container {
   display: flex;
   justify-content: space-evenly;
+}
+
+.picture-carosel {
+  display: flex;
+  margin: 10px;
 }
 
 /* Search */

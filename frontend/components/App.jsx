@@ -11,7 +11,7 @@ import { AuthRoute, ProtectedRoute } from '../util/routes_util';
 
 const App = () => (
   <div>
-    <header>
+    <header className="nav-bar">
       <h1>Bench BnB</h1>
       <GreetingContainer />
     </header>
