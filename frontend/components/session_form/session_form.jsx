@@ -30,13 +30,13 @@ class SessionForm extends Component {
 
   renderErrors() {
     return (
-      <ul>
+      <div>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <div key={`error-${i}`}>
             {error}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -48,7 +48,6 @@ class SessionForm extends Component {
           className="session-form"
           onSubmit={this.handleSubmit}>
           <br/>
-          {this.renderErrors()}
           <div className='login-form'>
             <label>Username: 
               <br/>
@@ -67,6 +66,7 @@ class SessionForm extends Component {
                 onChange={this.update('password')}
               />
             </label>
+            {this.renderErrors()}
             <br/>
             <h5>Please {this.props.formType} or {this.props.navLink}</h5>
             <br/>

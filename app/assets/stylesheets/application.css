@@ -17,6 +17,25 @@ body {
   font-family: 'Abel', sans-serif;
 }
 
+/* Nav Bar */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, rgb(146, 146, 146), rgb(255, 255, 255) 95%);
+  margin: -10px -10px 10px -10px;
+}
+.app-title {
+  margin-left: 10px;
+}
+.greeting-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 250px;
+  margin-right: 10px;
+}
+
 /* Session Form */
 .session-form-container {
   display: flex;
@@ -45,34 +64,12 @@ button {
   padding: 10px;
 }
 
-/* Nav Bar */
-.nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(to bottom, rgb(146, 146, 146), rgb(255, 255, 255) 90%);
-  margin: -10px -10px 10px -10px;
-}
-.app-title {
-  margin-left: 10px;
-}
-.greeting-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 250px;
-  margin-right: 10px;
-}
-
-.search-page-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-
+/* Map */
 #map {
   width: 700px;
   height: 700px;
 }
+
 /* Bench Show */
 .bench-show-container {
   display: flex;
@@ -85,6 +82,15 @@ button {
 }
 
 /* Search */
+.search-page-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.min-max-input {
+  width: 25px;
+}
+
 .bench-index-item-container {
   display: flex;
   align-items: center;
@@ -96,4 +102,11 @@ button {
 
 .bench-description {
   margin-left: 10px;
+}
+
+/* Bench Form */
+.bench-form {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }

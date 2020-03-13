@@ -8,15 +8,18 @@ const FilterForm = ({ updateFilter, minSeating, maxSeating }) => {
 
   return (
     <div>
-      Number of Seats:
-      <br/>
+      <h4>Number of Seats:</h4>
+      Minimum
       <input 
+        className="min-max-input"
         type="number" 
         placeholder="min-seating" 
         value={minSeating}
         onChange={handleFilterChange('minSeating')}
       />
+      Maximum
       <input 
+        className="min-max-input"
         type="number" 
         placeholder="max-seating" 
         value={maxSeating}

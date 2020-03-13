@@ -37,16 +37,21 @@ class BenchForm extends Component {
     const { seating, description } = this.state;
     
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="bench-form-container">
+        <form 
+          className="bench-form"
+          onSubmit={this.handleSubmit}>
           <label htmlFor="description">Description
+            <br/>
             <input 
               type="text"
               onChange={this.update('description')}
               value={description}
             />
           </label>
+          <br/>
           <label htmlFor="number of seats">Number of Seats
+            <br />
             <input 
               min="0"
               type="number"
@@ -54,20 +59,25 @@ class BenchForm extends Component {
               value={seating}
             />
           </label>
+          <br/>
           <label htmlFor="latitude">Latitude
+            <br/>
             <input 
               type="number"
               disabled
               value={lat}
             />
           </label>
+          <br/>
           <label htmlFor="longitude">Longitude
+            <br/>
             <input 
               type="number"
               disabled
               value={lng}
             />
           </label>
+          <br/>
           <button type="submit">Create Bench</button>
         </form>
       </div>
