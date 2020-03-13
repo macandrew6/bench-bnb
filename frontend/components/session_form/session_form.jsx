@@ -43,13 +43,15 @@ class SessionForm extends Component {
   render() {
     return (
       <div className="session-form-container">
-        <form onSubmit={this.handleSubmit}>
-          Welcome to BenchBnB!
+        <h2>Welcome to BenchBnB!</h2>
+        <form 
+          className="session-form"
+          onSubmit={this.handleSubmit}>
           <br/>
-          Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()}
           <div className='login-form'>
-            <label>Username:
+            <label>Username: 
+              <br/>
               <input 
                 type="text"
                 value={this.state.username}
@@ -57,15 +59,18 @@ class SessionForm extends Component {
               />
             </label>
             <br/>
-            <label>Password:
+            <label>Password: 
+              <br/>
               <input 
-                type="text"
+                type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
               />
             </label>
             <br/>
-            <input type="submit" value={this.props.formType} />
+            <h5>Please {this.props.formType} or {this.props.navLink}</h5>
+            <br/>
+            <button className="submit-button" type="submit"> {this.props.formType}</button>
           </div>
         </form>
       </div>

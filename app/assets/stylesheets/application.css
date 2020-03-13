@@ -18,6 +18,32 @@ body {
 }
 
 /* Session Form */
+.session-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.session-form {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);  
+  border-radius: 4px;
+  padding: 30px;
+  height: 300px;
+  width: 250px;
+  text-align: center;
+}
+
+input {
+  width: 60%;
+  padding: 5px;
+  margin: 10px 5px;
+}
+
+button {
+  padding: 10px;
+}
 
 /* Nav Bar */
 .nav-bar {
@@ -44,8 +70,8 @@ body {
 }
 
 #map {
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
 }
 /* Bench Show */
 .bench-show-container {
