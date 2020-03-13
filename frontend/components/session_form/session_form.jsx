@@ -42,7 +42,7 @@ class SessionForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="session-form-container">
         <form onSubmit={this.handleSubmit}>
           Welcome to BenchBnB!
           <br/>
