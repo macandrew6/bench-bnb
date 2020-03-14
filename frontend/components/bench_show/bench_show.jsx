@@ -22,15 +22,8 @@ const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
       </div>
       <h2>{bench.description}</h2>
       <div className="bench-show-container">
+        
         <div className="lefthalf-bench-show">
-          <BenchMap
-            benches={benches}
-            singleBench={true}
-            benchId={benchId}
-            fetchBench={fetchBench}
-          />
-        </div>
-        <div className="righthalf-bench-show">
           <BenchDetail
             bench={bench}
             reviews={reviews}
@@ -43,6 +36,14 @@ const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
           <ProtectedRoute
             path='/benches/:benchId/review'
             component={ReviewFormContainer}
+          />
+        </div>
+        <div className="righthalf-bench-show">
+          <BenchMap
+            benches={benches}
+            singleBench={true}
+            benchId={benchId}
+            fetchBench={fetchBench}
           />
         </div>
       </div>
