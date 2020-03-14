@@ -20,6 +20,7 @@ const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
       <div className="picture-carosel">
         {mappedPictures}
       </div>
+      <h2>{bench.description}</h2>
       <div className="bench-show-container">
         <div className="lefthalf-bench-show">
           <BenchMap
