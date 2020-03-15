@@ -77,6 +77,7 @@ button {
 
 .bench-show-container {
   display: flex;
+  height: 150vh;
   justify-content: space-evenly;
 }
 
@@ -90,6 +91,8 @@ button {
 }
 
 .righthalf-bench-show {
+  width: 700px;
+  height: 700px;
   box-shadow: 0 0 15px 20px rgba(56, 67, 104, 0.4);  
 }
 
