@@ -81,6 +81,14 @@ button {
   justify-content: space-evenly;
 }
 
+.link-to-benches {
+  position: relative;
+  font-size: large;
+  border: 1px solid black;
+  padding: 10px;
+  text-decoration: none;
+}
+
 .picture-carosel {
   display: flex;
   margin: 10px;
@@ -94,6 +102,12 @@ button {
   width: 700px;
   height: 700px;
   box-shadow: 0 0 15px 20px rgba(56, 67, 104, 0.4);  
+}
+
+/* Reviews */
+.reviews-index-container {
+  border: 1px solid black;
+  padding: 5px;
 }
 
 /* Search */

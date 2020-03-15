@@ -3,7 +3,7 @@ import ReviewIndexItemContainer from './review_index_item_container';
 
 const ReviewIndex = ({ reviews }) => {
   return (
-    <div>
+    <div className="reviews-index-container">
       {
         reviews.map(review => (
           <ReviewIndexItemContainer 
