@@ -15,14 +15,13 @@ const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
   ));
 
   return (
-    <div>
+    <div className="bench-show-master-container">
       <Link to='/'>Back to Benches</Link>
       <div className="picture-carosel">
         {mappedPictures}
       </div>
       <h2>{bench.description}</h2>
       <div className="bench-show-container">
-        
         <div className="lefthalf-bench-show">
           <BenchDetail
             bench={bench}

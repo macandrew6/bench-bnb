@@ -46,7 +46,7 @@ body {
 }
 
 .session-form {
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);  
+  box-shadow: 0 0 15px 10px rgba(0,0,0,0.2);  
   border-radius: 4px;
   padding: 30px;
   height: 300px;
@@ -86,7 +86,7 @@ button {
 }
 
 .righthalf-bench-show {
-  
+  box-shadow: 0 0 15px 20px rgba(56, 67, 104, 0.4);  
 }
 
 /* Search */
