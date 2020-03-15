@@ -81,6 +81,14 @@ button {
   margin: 10px;
 }
 
+.lefthalf-bench-show {
+
+}
+
+.righthalf-bench-show {
+  
+}
+
 /* Search */
 .search-page-container {
   display: flex;

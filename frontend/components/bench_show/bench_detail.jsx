@@ -8,6 +8,7 @@ const BenchDetail = ({ bench, reviews }) => {
       <div>{bench.seating} seats</div>
       <div>Latitude: {bench.lat}</div>
       <div>Longitude: {bench.lng}</div>
+      <br/>
       Reviews:
       <ReviewIndex reviews={reviews}/>
     </div>
