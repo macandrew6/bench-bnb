@@ -71,6 +71,10 @@ button {
 }
 
 /* Bench Show */
+.bench-show-master-container {
+  /* background-color: rgba(110, 128, 185, 0.349); */
+}
+
 .bench-show-container {
   display: flex;
   justify-content: space-evenly;
