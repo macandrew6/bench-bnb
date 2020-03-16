@@ -95,7 +95,7 @@ button {
 }
 
 .lefthalf-bench-show {
-
+  width: 40%;
 }
 
 .righthalf-bench-show {
@@ -108,6 +108,12 @@ button {
 .reviews-index-container {
   border: 1px solid black;
   padding: 5px;
+}
+
+.review-index-item {
+  padding: 20px 10px 20px 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid darkgray;
 }
 
 /* Search */

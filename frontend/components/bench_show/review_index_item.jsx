@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const ReviewIndexItem = ({ review, author }) => {
   return (
-    <div>
+    <div className="review-index-item">
       Rating: {review.rating}
       <br/>
       {review.body} - by {author.username}
