@@ -54,7 +54,7 @@ COOL_IMGS = [
 
 def addPictureToBench(bench_data, picture)
   image = open(picture)
-  bench_data.photos.attach(io: image, filename: "#{bench_data.description.split.join}.png")
+  bench_data.photos.attach(io: image, filename: image_url("#{bench_data.description.split.join}.png"))
 end
 
 POJO_IMGS.each do |img|
