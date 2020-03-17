@@ -113,6 +113,7 @@ button {
 .review-index-item {
   padding: 20px 10px 20px 10px;
   margin-bottom: 10px;
+  /* have border-bottom for every list item except the last one */
   border-bottom: 1px solid darkgray;
 }
 
