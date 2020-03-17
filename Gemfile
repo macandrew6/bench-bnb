@@ -33,7 +33,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem "aws-sdk-s3"
 gem 'rails_12factor', group: :production
 
 group :development, :test do
@@ -49,6 +48,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
+  gem "aws-sdk-s3"
 
   gem 'figaro'
   gem 'pry-rails'

@@ -30,30 +30,30 @@ bench3 = Bench.create!({
 })
 
 POJO_IMGS = [
-  'images/pojo_img1.jpg',
-  'images/pojo_img2.jpg',
-  'images/pojo_img3.jpg',
-  'images/pojo_img4.jpg'
+  'app/assets/images/pojo_img1.jpg',
+  'app/assets/images/pojo_img2.jpg',
+  'app/assets/images/pojo_img3.jpg',
+  'app/assets/images/pojo_img4.jpg'
 ]
 
 WALTER_IMGS = [
-  'images/walter_img1.jpg',
-  'images/walter_img2.jpg',
-  'images/walter_img3.jpg',
-  'images/walter_img4.jpg',
+  'app/assets/images/walter_img1.jpg',
+  'app/assets/images/walter_img2.jpg',
+  'app/assets/images/walter_img3.jpg',
+  'app/assets/images/walter_img4.jpg',
 ]
 
 COOL_IMGS = [
-  'images/cool1.jpg',
-  'images/cool2.jpg',
-  'images/cool3.jpg',
-  'images/cool4.jpg',
-  'images/cool5.jpg',
-  'images/cool6.jpg',
+  'app/assets/images/cool1.jpg',
+  'app/assets/images/cool2.jpg',
+  'app/assets/images/cool3.jpg',
+  'app/assets/images/cool4.jpg',
+  'app/assets/images/cool5.jpg',
+  'app/assets/images/cool6.jpg',
 ]
 
 def addPictureToBench(bench_data, picture)
-  image = File.open(picture)
+  image = open(picture)
   bench_data.photos.attach(io: image, filename: "#{bench_data.description.split.join}.png")
 end
 
