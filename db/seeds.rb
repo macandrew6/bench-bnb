@@ -53,6 +53,7 @@ COOL_IMGS = [
 ]
 
 def addPictureToBench(bench_data, picture)
+  debugger
   image = File.open(picture)
   bench_data.photos.attach(io: image, filename: "#{bench_data.description.split.join}.png")
 end
