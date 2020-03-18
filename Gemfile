@@ -30,7 +30,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activestorage'
 gem 'rails_12factor', group: :production
 gem "aws-sdk-s3", require: false
-gem 'sprockets_better_errors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
