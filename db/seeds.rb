@@ -29,50 +29,28 @@ bench3 = Bench.create!({
   description: 'cool bench'
 })
 
-# POJO_IMGS = [
-#   'app/assets/images/pojo_img1.jpg',
-#   'app/assets/images/pojo_img2.jpg',
-#   'app/assets/images/pojo_img3.jpg',
-#   'app/assets/images/pojo_img4.jpg'
-# ]
-
 POJO_IMGS = [
-  "https://thumbs-prod.si-cdn.com/Bn_ZZyCNb1JmIizAuKbnEncoj5Y=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/08/8d/088d119a-cd4d-4174-adce-0272c686290e/istock-496545234.jpg",
-  "https://previews.123rf.com/images/momo5287/momo52871312/momo5287131200025/24477829-african-pygmy-hedgehog-on-grass.jpg",
-  "https://vetmed.illinois.edu/wp-content/uploads/2017/12/pc-keller-hedgehog.jpg"
+  'app/assets/images/pojo_img1.jpg',
+  'app/assets/images/pojo_img2.jpg',
+  'app/assets/images/pojo_img3.jpg',
+  'app/assets/images/pojo_img4.jpg'
 ]
 
-# WALTER_IMGS = [
-#   'app/assets/images/walter_img1.jpg',
-#   'app/assets/images/walter_img2.jpg',
-#   'app/assets/images/walter_img3.jpg',
-#   'app/assets/images/walter_img4.jpg',
-# ]
+WALTER_IMGS = [
+  'app/assets/images/walter_img1.jpg',
+  'app/assets/images/walter_img2.jpg',
+  'app/assets/images/walter_img3.jpg',
+  'app/assets/images/walter_img4.jpg',
+]
 
-# # WALTER_IMGS = [
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/DR9FwpSYFjHvQh9e8W5rofd6",
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/KPoe5xhNTQAQRTpiS44Phwcu",
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/QYSHhJowQZFw1rvJgDin3pqP",
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/VU4jRb1x6FRJ2trXuFFynBP8"
-# # ]
-
-# COOL_IMGS = [
-#   'app/assets/images/cool1.jpg',
-#   'app/assets/images/cool2.jpg',
-#   'app/assets/images/cool3.jpg',
-#   'app/assets/images/cool4.jpg',
-#   'app/assets/images/cool5.jpg',
-#   'app/assets/images/cool6.jpg',
-# ]
-
-# # COOL_IMGS = [
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/WU856MySLfBJYvJsW3SXoSjD",
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/ipeWej462ZFiN5eYqRAUT3Km",
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/mjVQmBfcQbDGcLpim9BfDBF7",
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/mjXKWQuHr4AKUJBUpFfMnFtH",
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/qKGYMY9pftkvFTx3JDSQGdxk",
-# #   "https://amac-bench-bnb-dev.s3-us-west-1.amazonaws.com/wAkFbwLM15z78sVnU9UtUC5h"
-# # ]
+COOL_IMGS = [
+  'app/assets/images/cool1.jpg',
+  'app/assets/images/cool2.jpg',
+  'app/assets/images/cool3.jpg',
+  'app/assets/images/cool4.jpg',
+  'app/assets/images/cool5.jpg',
+  'app/assets/images/cool6.jpg',
+]
 
 def addPictureToBench(bench_data, picture)
   image = open(picture)
@@ -83,10 +61,10 @@ POJO_IMGS.each do |img|
   addPictureToBench(bench1, img)
 end
 
-# WALTER_IMGS.each do |img|
-#   addPictureToBench(bench2, img)
-# end
+WALTER_IMGS.each do |img|
+  addPictureToBench(bench2, img)
+end
 
-# COOL_IMGS.each do |img|
-#   addPictureToBench(bench3, img)
-# end
+COOL_IMGS.each do |img|
+  addPictureToBench(bench3, img)
+end
