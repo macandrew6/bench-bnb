@@ -6,10 +6,18 @@ class BenchForm extends Component {
     super(props);
     this.state = {
       description: '',
-      seating: 2
+      seating: 2,
+      photoFile: null,
+      photoUrl: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFile = this.handleFile.bind(this);
+    this.navigateToSearch = this.navigateToSearch.bind(this);
+  }
+
+  navigateToSearch() {
+    this.props.history.push('/');
   }
 
   update(field) {
@@ -18,6 +26,21 @@ class BenchForm extends Component {
         [field]: e.target.value
       });
     };
+  }
+
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+    fileReader.onloadend = () => {
+      this.setState({
+        photoFile: file,
+        photoUrl: fileReader.result
+      });
+    };
+    
   }
 
   handleSubmit(e) {
@@ -29,13 +52,13 @@ class BenchForm extends Component {
     formData.append('bench[lng]', this.props.lng);
 
     this.props.createBench(formData);
-    this.props.history.push('/');
+    this.navigateToSearch();
   }
   
   render() {
     const { lat, lng } = this.props;
     const { seating, description } = this.state;
-    
+    console.log(this.state);
     return (
       <div className="bench-form-container">
         <form 
@@ -77,8 +100,18 @@ class BenchForm extends Component {
               value={lng}
             />
           </label>
+
+          <div className="photo-input-container">
+            <input 
+              type="file"
+              onChange={this.handleFile}
+            />
+          </div>
           <br/>
           <button type="submit">Create Bench</button>
+          <button 
+            onClick={this.navigateToSearch}
+          >Cancel</button>
         </form>
       </div>
     );
