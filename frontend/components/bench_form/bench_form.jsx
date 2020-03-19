@@ -46,7 +46,6 @@ class BenchForm extends Component {
         fileReader.readAsDataURL(file);
       }
     }
-
   }
 
   handleSubmit(e) {
@@ -63,9 +62,8 @@ class BenchForm extends Component {
       });
     }
 
-    console.log(formData.getAll('bench[photos]'));
-
-    this.props.createBench(formData);
+    this.props.createBench(formData)
+      .then(res => console.log(res));
     this.navigateToSearch();
   }
   
