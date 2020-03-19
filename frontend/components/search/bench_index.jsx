@@ -3,7 +3,7 @@ import BenchIndexItem from './bench_index_item';
 
 const BenchIndex = ({ benches }) => {
   return (
-    <div>
+    <div className="bench-index">
       {benches.map(bench => (
         <BenchIndexItem key={bench.id} bench={bench} />
       ))}

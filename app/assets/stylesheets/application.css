@@ -127,6 +127,11 @@ button {
   width: 25px;
 }
 
+.bench-index {
+  overflow: scroll;
+  height: 592px;
+}
+
 .bench-index-item-container {
   display: flex;
   align-items: center;

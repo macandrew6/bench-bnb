@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 
 class BenchForm extends Component {
   constructor(props) {
@@ -62,8 +62,8 @@ class BenchForm extends Component {
       });
     }
 
-    this.props.createBench(formData)
-      .then(res => console.log(res));
+    this.props.createBench(formData);
+    // want this to go to the showpage after creating a new bench
     this.navigateToSearch();
   }
   
@@ -76,6 +76,7 @@ class BenchForm extends Component {
             <img src={photoUrl} key={i*performance.now()} height="250px" width="250px" />
           ))
         : null;
+    console.log(this.props);
     console.log(this.state);
 
     return (

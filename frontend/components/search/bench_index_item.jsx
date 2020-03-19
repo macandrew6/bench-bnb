@@ -19,11 +19,12 @@ class BenchIndexItem extends Component {
       <div 
         onClick={this.handleClick}
         className="bench-index-item-container">
-        <img src={bench.pictures[0]} alt="picture loading..." width="140" height="149" />
+        <img src={bench.pictures[0]} alt="picture loading..." width="175" height="175" />
         <div className="bench-description">
           <h1>{bench.description}</h1>
           <p>longitude: {bench.lng}</p>
           <p>latitude: {bench.lat}</p>
+          <p>seats: {bench.seating}</p>
         </div>
       </div>
     );

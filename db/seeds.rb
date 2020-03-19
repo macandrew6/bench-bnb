@@ -14,19 +14,22 @@ Review.destroy_all
 bench1 = Bench.create!({
   lng: -122.432813, 
   lat: 37.795741, 
-  description: 'pojo\'s house'
+  description: 'pojo\'s house',
+  seating: 4
 })
 
 bench2 = Bench.create!({
   lng: -122.437784, 
   lat: 37.790182, 
-  description: 'walter whites van'
+  description: 'walter whites van',
+  seating: 4
 })
 
 bench3 = Bench.create!({
   lng: -122.451116, 
   lat: 37.763076, 
-  description: 'cool bench'
+  description: 'cool bench',
+  seating: 2
 })
 
 POJO_IMGS = [
