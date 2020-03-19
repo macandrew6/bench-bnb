@@ -32,7 +32,7 @@ class Api::BenchesController < ApplicationController
       :lng,
       :description,
       :seating,
-      :photos
+      photos: []
     )
   end
 

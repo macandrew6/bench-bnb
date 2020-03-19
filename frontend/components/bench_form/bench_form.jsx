@@ -59,7 +59,7 @@ class BenchForm extends Component {
 
     if (this.state.photoFiles !== []) {
       this.state.photoFiles.forEach(photoFile => {
-        formData.append('bench[photos]', photoFile);
+        formData.append('bench[photos][]', photoFile);
       });
     }
 
