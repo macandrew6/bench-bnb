@@ -18,7 +18,7 @@ class Api::BenchesController < ApplicationController
   end
 
   def show
-    @bench = Bench.find(params[:id])
+    @bench = Bench.with_attached_photos.find(params[:id])
   end
 
   private

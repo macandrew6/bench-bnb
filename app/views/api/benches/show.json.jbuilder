@@ -1,7 +1,3 @@
-pictures = []
-@bench.photos.each do |photo|
-  pictures << url_for(photo)
-end
 json.bench do 
   json.partial! 'bench', bench: @bench
   json.reviewIds @bench.reviews.pluck(:id)
