@@ -37,10 +37,10 @@ class BenchForm extends Component {
       fileReader.onloadend = () => {
         files.push(file);
         urls.push(fileReader.result);
-          this.setState({
-            photoFiles: files,
-            photoUrls: urls
-          });
+        this.setState({
+          photoFiles: files,
+          photoUrls: urls
+        });
       };
       if (file) {
         fileReader.readAsDataURL(file);
@@ -57,9 +57,13 @@ class BenchForm extends Component {
     formData.append('bench[lat]', this.props.lat);
     formData.append('bench[lng]', this.props.lng);
 
-    if (this.state.photoFile) {
-      formData.append('bench[photos]', this.state.photoFile);
+    if (this.state.photoFiles !== []) {
+      this.state.photoFiles.forEach(photoFile => {
+        formData.append('bench[photos]', photoFile);
+      });
     }
+
+    console.log(formData.getAll('bench[photos]'));
 
     this.props.createBench(formData);
     this.navigateToSearch();
@@ -74,8 +78,8 @@ class BenchForm extends Component {
             <img src={photoUrl} key={i*performance.now()} height="250px" width="250px" />
           ))
         : null;
+    console.log(this.state);
 
-      console.log(this.state);
     return (
       <div className="bench-form-container">
         <form className="bench-form" onSubmit={this.handleSubmit}>
