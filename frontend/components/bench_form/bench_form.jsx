@@ -7,8 +7,8 @@ class BenchForm extends Component {
     this.state = {
       description: '',
       seating: 2,
-      photoFile: null,
-      photoUrl: null
+      photoFiles: [],
+      photoUrls: []
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,17 +29,24 @@ class BenchForm extends Component {
   }
 
   handleFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    if (file) {
-      fileReader.readAsDataURL(file);
+    const files = [];
+    const urls = [];
+    for (let i = 0; i < e.currentTarget.files.length; i++) {
+      const file = e.currentTarget.files[i];
+      const fileReader = new FileReader();
+      fileReader.onloadend = () => {
+        files.push(file);
+        urls.push(fileReader.result);
+          this.setState({
+            photoFiles: files,
+            photoUrls: urls
+          });
+      };
+      if (file) {
+        fileReader.readAsDataURL(file);
+      }
     }
-    fileReader.onloadend = () => {
-      this.setState({
-        photoFile: file,
-        photoUrl: fileReader.result
-      });
-    };
+
   }
 
   handleSubmit(e) {
@@ -61,63 +68,60 @@ class BenchForm extends Component {
   render() {
     const { lat, lng } = this.props;
     const { seating, description } = this.state;
-    const preview = this.state.photoUrl ? 
-      <img src={this.state.photoUrl} height="250px" width="250px"/> : null;
+    const preview =
+      this.state.photoUrls !== []
+        ? this.state.photoUrls.map((photoUrl,i) => (
+            <img src={photoUrl} key={i*performance.now()} height="250px" width="250px" />
+          ))
+        : null;
+
+      console.log(this.state);
     return (
       <div className="bench-form-container">
-        <form 
-          className="bench-form"
-          onSubmit={this.handleSubmit}>
-          <label htmlFor="description">Description
-            <br/>
-            <input 
+        <form className="bench-form" onSubmit={this.handleSubmit}>
+          <label htmlFor="description">
+            Description
+            <br />
+            <input
               type="text"
-              onChange={this.update('description')}
+              onChange={this.update("description")}
               value={description}
             />
           </label>
-          <br/>
-          <label htmlFor="number of seats">Number of Seats
+          <br />
+          <label htmlFor="number of seats">
+            Number of Seats
             <br />
-            <input 
+            <input
               min="0"
               type="number"
-              onChange={this.update('seating')}
+              onChange={this.update("seating")}
               value={seating}
             />
           </label>
-          <br/>
-          <label htmlFor="latitude">Latitude
-            <br/>
-            <input 
-              type="number"
-              disabled
-              value={lat}
-            />
+          <br />
+          <label htmlFor="latitude">
+            Latitude
+            <br />
+            <input type="number" disabled value={lat} />
           </label>
-          <br/>
-          <label htmlFor="longitude">Longitude
-            <br/>
-            <input 
-              type="number"
-              disabled
-              value={lng}
-            />
+          <br />
+          <label htmlFor="longitude">
+            Longitude
+            <br />
+            <input type="number" disabled value={lng} />
           </label>
 
           <div className="photo-input-container">
             {preview}
-            <input 
-              type="file"
-              onChange={this.handleFile}
-            />
+            <input type="file" multiple="multiple" onChange={this.handleFile} />
           </div>
-          <br/>
-          <button type="submit">Create Bench</button>
-          <br/>
-          <button 
-            onClick={this.navigateToSearch}
-          >Cancel</button>
+          <br />
+          <button type="submit" multiple="multiple">
+            Create Bench
+          </button>
+          <br />
+          <button onClick={this.navigateToSearch}>Cancel</button>
         </form>
       </div>
     );
