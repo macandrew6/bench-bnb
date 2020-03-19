@@ -40,7 +40,6 @@ class BenchForm extends Component {
         photoUrl: fileReader.result
       });
     };
-    
   }
 
   handleSubmit(e) {
@@ -51,6 +50,10 @@ class BenchForm extends Component {
     formData.append('bench[lat]', this.props.lat);
     formData.append('bench[lng]', this.props.lng);
 
+    if (this.state.photoFile) {
+      formData.append('bench[photos]', this.state.photoFile);
+    }
+
     this.props.createBench(formData);
     this.navigateToSearch();
   }
@@ -58,7 +61,8 @@ class BenchForm extends Component {
   render() {
     const { lat, lng } = this.props;
     const { seating, description } = this.state;
-    console.log(this.state);
+    const preview = this.state.photoUrl ? 
+      <img src={this.state.photoUrl} height="250px" width="250px"/> : null;
     return (
       <div className="bench-form-container">
         <form 
@@ -102,6 +106,7 @@ class BenchForm extends Component {
           </label>
 
           <div className="photo-input-container">
+            {preview}
             <input 
               type="file"
               onChange={this.handleFile}
@@ -109,6 +114,7 @@ class BenchForm extends Component {
           </div>
           <br/>
           <button type="submit">Create Bench</button>
+          <br/>
           <button 
             onClick={this.navigateToSearch}
           >Cancel</button>

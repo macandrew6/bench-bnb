@@ -142,7 +142,9 @@ button {
 
 /* Bench Form */
 .bench-form {
-  width: 80%;
+  border: 1px solid lightgray;
+  padding: 20px;
+  width: 40%;
   margin: 0 auto;
   text-align: center;
 }
