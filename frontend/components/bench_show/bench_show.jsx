@@ -7,6 +7,8 @@ import { ProtectedRoute } from '../../util/routes_util';
 import { ReviewLink } from '../../util/link_util';
 
 const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
+  // slice of state onShowPage:bool
+  
   const benches = {
     [benchId]: bench
   };

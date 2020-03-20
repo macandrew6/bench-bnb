@@ -62,9 +62,13 @@ class BenchForm extends Component {
       });
     }
 
-    this.props.createBench(formData);
+    this.props.createBench(formData)
+      .then(res => {
+        let wildCard = res.bench.id;
+        this.props.history.push(`/benches/${wildCard}`);
+      });
     // want this to go to the showpage after creating a new bench
-    this.navigateToSearch();
+    // this.navigateToSearch();
   }
   
   render() {
@@ -76,8 +80,8 @@ class BenchForm extends Component {
             <img src={photoUrl} key={i*performance.now()} height="250px" width="250px" />
           ))
         : null;
-    console.log(this.props);
-    console.log(this.state);
+    // console.log(this.props);
+    // console.log(this.state);
 
     return (
       <div className="bench-form-container">
