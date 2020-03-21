@@ -13,7 +13,6 @@ class BenchMap extends Component {
   }
   
   componentDidMount() {
-    const { benches, benchId } = this.props;
 
     if(this.props.singleBench) {
       this.mapOptions.gestureHandling = 'none';
@@ -25,11 +24,12 @@ class BenchMap extends Component {
       this.map, 
       this.handleMarkerClick.bind(this),
       this.props.singleBench,
-      benchId
+      this.props.benchId
     );
 
     if (this.props.singleBench) {
       this.props.fetchBench(this.props.benchId).then(() => {
+        const { benches, benchId } = this.props;
         this.map.setCenter({ lat: benches[benchId].lat, lng: benches[benchId].lng });
       });
     } else {
