@@ -1,10 +1,11 @@
 /* global google:false */
 
 export default class MarkerManager {
-  constructor(map, handleClick) {
+  constructor(map, handleClick, isSingleBench) {
     this.map = map;
     this.handleClick = handleClick;
     this.markers = {};
+    this.isSingleBench = isSingleBench;
   }
 
   updateMarkers(benches) {
@@ -30,7 +31,10 @@ export default class MarkerManager {
       benchId: bench.id
     });
 
-    marker.addListener('click', () => this.handleClick(bench));
+    if (!this.isSingleBench) {
+      marker.addListener('click', () => this.handleClick(bench));
+    } 
+    
     this.markers[marker.benchId] = marker;
   }
 
