@@ -1,3 +1,5 @@
+/* global google:false */
+
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -13,7 +15,6 @@ class BenchMap extends Component {
   }
   
   componentDidMount() {
-
     if(this.props.singleBench) {
       this.mapOptions.gestureHandling = 'none';
     } 
