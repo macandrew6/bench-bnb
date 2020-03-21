@@ -8,6 +8,7 @@ import { ReviewLink } from '../../util/link_util';
 
 const BenchShow = ({ bench, fetchBench, benchId, reviews }) => {
   // slice of state onShowPage:bool
+  // pass down into singleMap remove event listener
   
   const benches = {
     [benchId]: bench
