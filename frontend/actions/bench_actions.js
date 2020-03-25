@@ -45,6 +45,7 @@ export const receiveReview = ({ review, author, average_rating }) => {
 };
 
 export const fetchBench = id => dispatch => {
+  dispatch(startLoadingSingleBench());
   return (
     BenchesAPIUtil.fetchBench(id)
       .then((payload) => dispatch(receiveBench(payload)))
@@ -52,6 +53,7 @@ export const fetchBench = id => dispatch => {
 };
 
 export const fetchBenches = filters => dispatch => {
+  dispatch(startLoadingAllBenches());
   return (
     BenchesAPIUtil.fetchBenches(filters)
       .then((benches) => dispatch(receiveBenches(benches)))
