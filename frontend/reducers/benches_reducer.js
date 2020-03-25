@@ -4,7 +4,12 @@ const benchesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_BENCHES:
-      return action.benches;
+      console.log("actions => ", action);
+      let loadingState = Object.assign({}, state);
+      // loadingState.ui = {loading : action.loading};
+      // loadingState.ui.loading.indexLoading = true;
+      // console.log(loadingState);
+      return Object.assign({}, action.benches);
     case RECEIVE_BENCH:
       const newBench = { [action.bench.id]: action.bench };
       return Object.assign({}, state, newBench);

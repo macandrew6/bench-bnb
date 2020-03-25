@@ -5,9 +5,11 @@ import FilterForm from './filter_form';
 import LoadingIcon from '../loading/loading_icon';
 
 const Search = ({ benches, minSeating, maxSeating, loading, updateFilter }) => {
-  console.log(loading);
+  // console.log(loading);
 
-  if (loading) return <LoadingIcon />;
+  // if (loading === true) {
+  //   return <LoadingIcon />;
+  // } 
 
   return (
     <div className="search-page-container">

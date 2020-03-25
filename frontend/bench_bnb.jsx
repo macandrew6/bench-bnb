@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
   //testing start
- 
   //testing end
   
   const root = document.getElementById('root');
