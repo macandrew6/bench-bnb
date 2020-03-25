@@ -2,8 +2,15 @@ import React from 'react';
 import BenchMap from '../bench_map/bench_map';
 import BenchIndex from './bench_index';
 import FilterForm from './filter_form';
+import LoadingIcon from '../loading/loading_icon';
 
-const Search = ({ benches, minSeating, maxSeating, fetchBenches, updateFilter }) => {
+const Search = ({ benches, minSeating, maxSeating, loading, updateFilter }) => {
+  console.log(loading);
+
+  if (loading) {
+    return <section className="search-page-container"><LoadingIcon /></section>;
+  }
+
   return (
     <div className="search-page-container">
       <BenchMap 

@@ -135,6 +135,7 @@ button {
 .bench-index-item-container {
   display: flex;
   align-items: center;
+  border-radius: 30%;
   cursor: pointer;
   border-bottom: 1px solid rgba(161, 161, 161, 0.726);
   margin: 3px;
