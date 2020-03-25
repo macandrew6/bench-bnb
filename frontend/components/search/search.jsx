@@ -7,9 +7,7 @@ import LoadingIcon from '../loading/loading_icon';
 const Search = ({ benches, minSeating, maxSeating, loading, updateFilter }) => {
   console.log(loading);
 
-  if (loading) {
-    return <section className="search-page-container"><LoadingIcon /></section>;
-  }
+  if (loading) return <LoadingIcon />;
 
   return (
     <div className="search-page-container">
