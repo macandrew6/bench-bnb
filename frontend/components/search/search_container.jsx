@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Search from './search';
-import { fetchBenches } from '../../actions/bench_actions';
 import { updateFilter } from '../../actions/filter_actions';
 
 const mapStateToProps = ({ entities: { benches }, ui: { filters, loading } }) => ({
