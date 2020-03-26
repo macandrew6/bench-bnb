@@ -17,11 +17,10 @@ export const startLoadingSingleBench = () => {
   });
 };
 
-export const receiveBenches = (benches, loading) => {
+export const receiveBenches = (benches) => {
   return ({
     type: RECEIVE_BENCHES,
-    benches,
-    loading
+    benches
   });
 };
 
@@ -53,11 +52,11 @@ export const fetchBench = id => dispatch => {
   );
 };
 
-export const fetchBenches = (filters, loading) => (dispatch) => {
+export const fetchBenches = (filters) => (dispatch) => {
   dispatch(startLoadingAllBenches());
   return (
     BenchesAPIUtil.fetchBenches(filters)
-      .then((benches) => dispatch(receiveBenches(benches, loading)))
+      .then((benches) => dispatch(receiveBenches(benches)))
   );
 };
 

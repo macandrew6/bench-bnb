@@ -13,8 +13,8 @@ const initState = {
 const loadingReducer = (state=initState, action) => {
   Object.freeze(state);
   switch(action.type) {
-    // case RECEIVE_BENCHES:
-    //   return Object.assign({}, state, { indexLoading: false });
+    case RECEIVE_BENCHES:
+      return Object.assign({}, state, { indexLoading: false });
     // case RECEIVE_BENCH:
     //   return Object.assign({}, state, { singleLoading: false });
     case START_LOADING_ALL_BENCHES:

@@ -34,6 +34,7 @@ class BenchMap extends Component {
         this.map.setCenter({ lat: benches[benchId].lat, lng: benches[benchId].lng });
       });
     } else {
+      console.log('im running baby'); // this is out of control. could be the source of the problem
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.benches);
     }
