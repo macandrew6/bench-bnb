@@ -15,7 +15,6 @@ class BenchMap extends Component {
   }
 
   componentDidMount() {
-    console.log("benchmap mounted");
     if (this.props.singleBench) {
       this.mapOptions.gestureHandling = "none";
     }
