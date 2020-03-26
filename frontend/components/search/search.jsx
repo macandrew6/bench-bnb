@@ -51,7 +51,7 @@ class Search extends React.Component {
     // action, and receive benches action
     return (
       <div>
-        {loading && <LoadingIcon id="loading-icon" />}
+        {loading && <LoadingIcon className="search-page-container" />}
         <div className="search-page-container">
           <BenchMap
             benches={benches}
