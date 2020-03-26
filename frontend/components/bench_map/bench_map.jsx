@@ -1,9 +1,9 @@
 /* global google:false */
 
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
-import MarkerManager from '../../util/marker_manager';
+import MarkerManager from "../../util/marker_manager";
 
 class BenchMap extends Component {
   constructor() {
@@ -13,16 +13,17 @@ class BenchMap extends Component {
       zoom: 13
     };
   }
-  
-  componentDidMount() {
-    if(this.props.singleBench) {
-      this.mapOptions.gestureHandling = 'none';
-    } 
 
-    const map = document.getElementById('map');
+  componentDidMount() {
+    console.log("benchmap mounted");
+    if (this.props.singleBench) {
+      this.mapOptions.gestureHandling = "none";
+    }
+
+    const map = document.getElementById("map");
     this.map = new google.maps.Map(map, this.mapOptions);
     this.MarkerManager = new MarkerManager(
-      this.map, 
+      this.map,
       this.handleMarkerClick.bind(this),
       this.props.singleBench,
       this.props.benchId
@@ -31,10 +32,12 @@ class BenchMap extends Component {
     if (this.props.singleBench) {
       this.props.fetchBench(this.props.benchId).then(() => {
         const { benches, benchId } = this.props;
-        this.map.setCenter({ lat: benches[benchId].lat, lng: benches[benchId].lng });
+        this.map.setCenter({
+          lat: benches[benchId].lat,
+          lng: benches[benchId].lng
+        });
       });
     } else {
-      console.log('im running baby'); // this is out of control. could be the source of the problem
       this.registerListeners();
       this.MarkerManager.updateMarkers(this.props.benches);
     }
@@ -50,16 +53,16 @@ class BenchMap extends Component {
   }
 
   registerListeners() {
-    google.maps.event.addListener(this.map, 'idle', () => {
+    google.maps.event.addListener(this.map, "idle", () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west }
       };
-      this.props.updateFilter('bounds', bounds);
+      this.props.updateFilter("bounds", bounds);
     });
 
-    google.maps.event.addListener(this.map, 'click', (e) => {
+    google.maps.event.addListener(this.map, "click", e => {
       let coords = {
         lat: e.latLng.lat(),
         lng: e.latLng.lng()
@@ -74,17 +77,13 @@ class BenchMap extends Component {
 
   handleClick(coords) {
     this.props.history.push({
-      pathname: 'benches/new',
+      pathname: "benches/new",
       search: `lat=${coords.lat}&lng=${coords.lng}`
     });
   }
 
   render() {
-    return (
-      <div id="map" ref="map">
-        
-      </div>
-    );
+    return <div id="map" ref="map"></div>;
   }
 }
 

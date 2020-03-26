@@ -1,30 +1,30 @@
-import React from 'react';
-import BenchMap from '../bench_map/bench_map';
-import BenchIndex from './bench_index';
-import FilterForm from './filter_form';
-import LoadingIcon from '../loading/loading_icon';
+import React from "react";
+import BenchMap from "../bench_map/bench_map";
+import BenchIndex from "./bench_index";
+import FilterForm from "./filter_form";
+import LoadingIcon from "../loading/loading_icon";
 
 // const Search = ({ benches, minSeating, maxSeating, loading, updateFilter }) => {
 //   // console.log(loading);
 
 //   if (loading === true) {
 //     return <LoadingIcon />;
-//   } 
+//   }
 
 //   return (
 //     <div className="search-page-container">
-//       <BenchMap 
+//       <BenchMap
 //         benches={benches}
 //         updateFilter={updateFilter}
 //         singleBench={false}
 //       />
 //       <div>
-//         <FilterForm 
+//         <FilterForm
 //           updateFilter={updateFilter}
 //           minSeating={minSeating}
 //           maxSeating={maxSeating}
 //         />
-//         <BenchIndex 
+//         <BenchIndex
 //           benches={benches}
 //         />
 //       </div>
@@ -32,48 +32,44 @@ import LoadingIcon from '../loading/loading_icon';
 //   );
 // };
 
-
 class Search extends React.Component {
   componentDidUnMount() {
-    console.log('unmounted')
+    console.log("unmounted");
   }
 
   render() {
-    const { 
-      benches, 
-      minSeating, 
-      maxSeating, 
-      loading, 
-      updateFilter } = this.props;
+    const {
+      benches,
+      minSeating,
+      maxSeating,
+      loading,
+      updateFilter
+    } = this.props;
 
-    if (loading) {
-      return <LoadingIcon />;
-    } 
-
-    // every time the map renders on the page it runs componentDidMount which 
-    // puts it into a new redux cycle by updating the filter actions, loader 
+    // every time the map renders on the page it runs componentDidMount which
+    // puts it into a new redux cycle by updating the filter actions, loader
     // action, and receive benches action
     return (
-      <div className="search-page-container">
-        <BenchMap
-          benches={benches}
-          updateFilter={updateFilter}
-          singleBench={false}
-        />
-        <div>
-          <FilterForm
-            updateFilter={updateFilter}
-            minSeating={minSeating}
-            maxSeating={maxSeating}
-          />
-          <BenchIndex
+      <div>
+        {loading && <LoadingIcon id="loading-icon" />}
+        <div className="search-page-container">
+          <BenchMap
             benches={benches}
+            updateFilter={updateFilter}
+            singleBench={false}
           />
+          <div>
+            <FilterForm
+              updateFilter={updateFilter}
+              minSeating={minSeating}
+              maxSeating={maxSeating}
+            />
+            <BenchIndex benches={benches} />
+          </div>
         </div>
       </div>
     );
   }
 }
-
 
 export default Search;
