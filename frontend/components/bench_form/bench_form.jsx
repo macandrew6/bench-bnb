@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
+import LoadingIcon from "../loading/loading_icon";
 
 class BenchForm extends Component {
   constructor(props) {
@@ -72,7 +73,7 @@ class BenchForm extends Component {
   }
 
   render() {
-    const { lat, lng } = this.props;
+    const { lat, lng, loading } = this.props;
     const { seating, description } = this.state;
     const preview =
       this.state.photoUrls !== []
@@ -86,62 +87,72 @@ class BenchForm extends Component {
           ))
         : null;
 
-    return (
-      <div className="bench-form-container">
-        <form className="bench-form" onSubmit={this.handleSubmit}>
-          <label htmlFor="description">
-            Description
-            <br />
-            <input
-              type="text"
-              onChange={this.update("description")}
-              value={description}
-              required
-            />
-          </label>
-          <br />
-          <label htmlFor="number of seats">
-            Number of Seats
-            <br />
-            <input
-              min="0"
-              type="number"
-              onChange={this.update("seating")}
-              value={seating}
-              required
-            />
-          </label>
-          <br />
-          <label htmlFor="latitude">
-            Latitude
-            <br />
-            <input type="number" disabled value={lat} />
-          </label>
-          <br />
-          <label htmlFor="longitude">
-            Longitude
-            <br />
-            <input type="number" disabled value={lng} />
-          </label>
+    if (loading) {
+      return <LoadingIcon className="bench-form-container" />;
+    }
 
-          <div className="photo-input-container">
-            {preview}
-            <input type="file" multiple="multiple" onChange={this.handleFile} />
-          </div>
-          <br />
-          <button
-            className="btn"
-            ref={btn => {
-              this.btn = btn;
-            }}
-            type="submit"
-            multiple="multiple"
-          >
-            Create Bench
-          </button>
-          <br />
-          <button onClick={this.navigateToSearch}>Cancel</button>
-        </form>
+    return (
+      <div>
+        <div className="bench-form-container">
+          <form className="bench-form" onSubmit={this.handleSubmit}>
+            <label htmlFor="description">
+              Description
+              <br />
+              <input
+                type="text"
+                onChange={this.update("description")}
+                value={description}
+                required
+              />
+            </label>
+            <br />
+            <label htmlFor="number of seats">
+              Number of Seats
+              <br />
+              <input
+                min="0"
+                type="number"
+                onChange={this.update("seating")}
+                value={seating}
+                required
+              />
+            </label>
+            <br />
+            <label htmlFor="latitude">
+              Latitude
+              <br />
+              <input type="number" disabled value={lat} />
+            </label>
+            <br />
+            <label htmlFor="longitude">
+              Longitude
+              <br />
+              <input type="number" disabled value={lng} />
+            </label>
+
+            <div className="photo-input-container">
+              {preview}
+              <input
+                type="file"
+                multiple="multiple"
+                onChange={this.handleFile}
+              />
+            </div>
+            <br />
+            <button
+              className="btn"
+              ref={btn => {
+                this.btn = btn;
+              }}
+              type="submit"
+              multiple="multiple"
+            >
+              Create Bench
+            </button>
+            <br />
+            <button onClick={this.navigateToSearch}>Cancel</button>
+          </form>
+        </div>
       </div>
     );
   }

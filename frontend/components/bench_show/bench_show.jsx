@@ -14,38 +14,38 @@ const BenchShow = ({ bench, fetchBench, benchId, reviews, loading }) => {
   let mappedPictures = bench.pictures.map((picture, i) => (
     <img key={i} src={picture} width="300" height="300" alt="loading..." />
   ));
-  console.log(loading);
+
+  if (loading) {
+    return <LoadingIcon className="bench-show-master-container" />;
+  }
 
   return (
-    <div>
-      {loading && <LoadingIcon className="bench-show-master-container" />}
-      <div className="bench-show-master-container">
-        <Link className="link-to-benches" to="/">
-          Back to Benches
-        </Link>
-        <div className="picture-carosel">{mappedPictures}</div>
-        <h2>{bench.description}</h2>
-        <div className="bench-show-container">
-          <div className="lefthalf-bench-show">
-            <BenchDetail bench={bench} reviews={reviews} />
-            <ReviewLink
-              component={ReviewFormContainer}
-              to={`/benches/${benchId}/review`}
-              label="Leave a Review"
-            />
-            <ProtectedRoute
-              path="/benches/:benchId/review"
-              component={ReviewFormContainer}
-            />
-          </div>
-          <div className="righthalf-bench-show">
-            <BenchMap
-              benches={benches}
-              singleBench={true}
-              benchId={benchId}
-              fetchBench={fetchBench}
-            />
-          </div>
+    <div className="bench-show-master-container">
+      <Link className="link-to-benches" to="/">
+        Back to Benches
+      </Link>
+      <div className="picture-carosel">{mappedPictures}</div>
+      <h2>{bench.description}</h2>
+      <div className="bench-show-container">
+        <div className="lefthalf-bench-show">
+          <BenchDetail bench={bench} reviews={reviews} />
+          <ReviewLink
+            component={ReviewFormContainer}
+            to={`/benches/${benchId}/review`}
+            label="Leave a Review"
+          />
+          <ProtectedRoute
+            path="/benches/:benchId/review"
+            component={ReviewFormContainer}
+          />
+        </div>
+        <div className="righthalf-bench-show">
+          <BenchMap
+            benches={benches}
+            singleBench={true}
+            benchId={benchId}
+            fetchBench={fetchBench}
+          />
         </div>
       </div>
     </div>
