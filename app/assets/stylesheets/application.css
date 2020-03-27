@@ -14,7 +14,7 @@
  *= require_self
  */
 body {
-  font-family: 'Abel', sans-serif;
+  font-family: "Abel", sans-serif;
 }
 
 /* Nav Bar */
@@ -22,7 +22,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, rgb(146, 146, 146), rgb(255, 255, 255) 95%);
+  background: linear-gradient(
+    to bottom,
+    rgb(146, 146, 146),
+    rgb(255, 255, 255) 95%
+  );
   margin: -10px -10px 10px -10px;
 }
 .app-title {
@@ -46,7 +50,7 @@ body {
 }
 
 .session-form {
-  box-shadow: 0 0 15px 10px rgba(0,0,0,0.2);  
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 30px;
   height: 300px;
@@ -101,7 +105,7 @@ button {
 .righthalf-bench-show {
   width: 700px;
   height: 700px;
-  box-shadow: 0 0 15px 20px rgba(56, 67, 104, 0.4);  
+  box-shadow: 0 0 15px 20px rgba(56, 67, 104, 0.4);
 }
 
 /* Reviews */
@@ -139,7 +143,11 @@ button {
   cursor: pointer;
   border-bottom: 1px solid rgba(161, 161, 161, 0.726);
   margin: 3px;
-  background: linear-gradient(to right, rgb(146, 146, 146), rgb(255, 255, 255) 75%);
+  background: linear-gradient(
+    to right,
+    rgb(146, 146, 146),
+    rgb(255, 255, 255) 75%
+  );
 }
 
 .bench-description {
@@ -153,4 +161,8 @@ button {
   width: 40%;
   margin: 0 auto;
   text-align: center;
+}
+
+.btn:disabled {
+  color: black;
 }

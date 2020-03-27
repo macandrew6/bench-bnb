@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { withRouter, Redirect } from 'react-router-dom';
+import React, { Component } from "react";
+import { withRouter, Redirect } from "react-router-dom";
 
 class BenchForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      description: '',
+      description: "",
       seating: 2,
       photoFiles: [],
       photoUrls: []
@@ -17,7 +17,7 @@ class BenchForm extends Component {
   }
 
   navigateToSearch() {
-    this.props.history.push('/');
+    this.props.history.push("/");
   }
 
   update(field) {
@@ -51,31 +51,36 @@ class BenchForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('bench[description]', this.state.description);
-    formData.append('bench[seating]', this.state.seating);
-    formData.append('bench[lat]', this.props.lat);
-    formData.append('bench[lng]', this.props.lng);
+    formData.append("bench[description]", this.state.description);
+    formData.append("bench[seating]", this.state.seating);
+    formData.append("bench[lat]", this.props.lat);
+    formData.append("bench[lng]", this.props.lng);
 
     if (this.state.photoFiles !== []) {
       this.state.photoFiles.forEach(photoFile => {
-        formData.append('bench[photos][]', photoFile);
+        formData.append("bench[photos][]", photoFile);
       });
     }
 
-    this.props.createBench(formData)
-      .then(res => {
-        let wildCard = res.bench.id;
-        this.props.history.push(`/benches/${wildCard}`);
-      });
+    this.props.createBench(formData).then(res => {
+      let wildCard = res.bench.id;
+      this.props.history.push(`/benches/${wildCard}`);
+    });
+    this.btn.setAttribute("disabled", "disabled");
   }
-  
+
   render() {
     const { lat, lng } = this.props;
     const { seating, description } = this.state;
     const preview =
       this.state.photoUrls !== []
-        ? this.state.photoUrls.map((photoUrl,i) => (
-            <img src={photoUrl} key={i*performance.now()} height="250px" width="250px" />
+        ? this.state.photoUrls.map((photoUrl, i) => (
+            <img
+              src={photoUrl}
+              key={i * performance.now()}
+              height="250px"
+              width="250px"
+            />
           ))
         : null;
 
@@ -89,6 +94,7 @@ class BenchForm extends Component {
               type="text"
               onChange={this.update("description")}
               value={description}
+              required
             />
           </label>
           <br />
@@ -100,6 +106,7 @@ class BenchForm extends Component {
               type="number"
               onChange={this.update("seating")}
               value={seating}
+              required
             />
           </label>
           <br />
@@ -120,7 +127,14 @@ class BenchForm extends Component {
             <input type="file" multiple="multiple" onChange={this.handleFile} />
           </div>
           <br />
-          <button type="submit" multiple="multiple">
+          <button
+            className="btn"
+            ref={btn => {
+              this.btn = btn;
+            }}
+            type="submit"
+            multiple="multiple"
+          >
             Create Bench
           </button>
           <br />
