@@ -163,6 +163,8 @@ button {
   text-align: center;
 }
 
-.btn:disabled {
-  color: black;
+.btn.disabled {
+  background: rgba(230, 230, 230, 0.466);
+  color: rgb(66, 66, 66);
+  cursor: not-allowed;
 }

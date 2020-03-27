@@ -4,6 +4,7 @@ import { withRouter, Redirect } from "react-router-dom";
 class BenchForm extends Component {
   constructor(props) {
     super(props);
+    // render a loading icon when the bench is being created
     this.state = {
       description: "",
       seating: 2,
@@ -66,7 +67,8 @@ class BenchForm extends Component {
       let wildCard = res.bench.id;
       this.props.history.push(`/benches/${wildCard}`);
     });
-    this.btn.setAttribute("disabled", "disabled");
+    this.btn.setAttribute("disabled", true);
+    this.btn.classList.add("disabled");
   }
 
   render() {
